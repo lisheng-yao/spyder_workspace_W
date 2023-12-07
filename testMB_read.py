@@ -6,7 +6,7 @@ Created on Thu Nov 30 10:45:30 2023
 @author: yaolisheng
 """
 
-from pymodbus.client.sync import ModbusSerialClient as ModbusClient
+from pymodbus.client.sync import ModbusSerialClient as ModbusClient # pymodbus==2.5.3
 import time
 # from pymodbus.client.serial import ModbusSerialClient as ModbusClient
 
@@ -14,7 +14,7 @@ import time
 
 # 建立 Modbus RTU 連接
 client = ModbusClient(method='rtu', 
-                      port='/dev/tty.usbserial-140',  # 串行端口，根據您的設備調整
+                      port='COM4',          # 串行端口，根據您的設備調整
                       baudrate=9600,        # 波特率
                       parity='N',           # 奇偶校驗，可能是 'N', 'E' 或 'O'
                       stopbits=1,           # 停止位
@@ -26,6 +26,7 @@ try:
     # 嘗試連接
     connection = client.connect()
     if connection:
+        # while True:
         for i in range(10):
             # 讀取數據 (從地址0開始讀取10個寄存器)
             response = client.read_holding_registers(address=0, count=10, unit=1)
