@@ -79,17 +79,19 @@ combined_df = pd.concat([df1, df2], axis=0)
 
 
 # 如果您想要将合并后的数据表保存为新的CSV文件
-try:
-    combined_df.to_csv(r"C:\Users\w\Desktop\merged_data.csv", index=True)
-    print("合併成功")
-except Exception as e:
-    print("合併失敗:", e)
+# try:
+#     combined_df.to_csv(r"C:\Users\w\Desktop\merged_data.csv", index=True)
+#     print("合併成功")
+# except Exception as e:
+#     print("合併失敗:", e)
 
 
 from glob import glob
 files = glob(r"C:\Users\w\Desktop\data\bank*.csv")
+print(files)
 
-df = pd.concat([pd.read_csv(f) for f in files])
+
+df = pd.concat([pd.read_csv(f) for in files])
 df.reset_index(drop = True)
 
 # 輸出合併CSV檔
@@ -99,9 +101,8 @@ df.reset_index(drop = True)
 
 #%% 完整內容
 
-import pandas.testing as tm
-df = tm.makeCustomDataframe(5,25)
-df
+
+
 
 
 
