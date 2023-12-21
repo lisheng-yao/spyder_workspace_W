@@ -67,18 +67,21 @@ dictionary
 #%% 合併csv
 
 df1 = pd.read_csv(r"C:\Users\w\Desktop\data\bank1.csv")
+# print(df1)
 df2 = pd.read_csv(r"C:\Users\w\Desktop\data\bank2.csv")
+# print(df2)
 
-combined_df = pd.concat([df1, df2], axis=0)
 # 使用concat函数合并数据表，axis=0表示在垂直方向上合并（往下）
-combined_df.reset_index(drop=True, inplace=True)
+combined_df = pd.concat([df1, df2], axis=0)leopeter801
+print(combined_df)
 
-# 重置索引，因为concat后索引会保持原数据表的索引
-combined_df.reset_index(drop=True, inplace=True)
+# # 重置索引，因为concat后索引会保持原数据表的索引
+# combined_df.reset_index(drop=True, inplace=True)
+
 
 # 如果您想要将合并后的数据表保存为新的CSV文件
 try:
-    combined_df.to_csv(r"C:\Users\w\Desktop\merged_data.csv", index=False)
+    combined_df.to_csv(r"C:\Users\w\Desktop\merged_data.csv", index=True)
     print("合併成功")
 except Exception as e:
     print("合併失敗:", e)
