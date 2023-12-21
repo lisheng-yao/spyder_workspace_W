@@ -16,7 +16,10 @@ data = pd.read_csv(r'C:\Users\w\Downloads\Picture_data_2.csv')  # 将'your_data.
 # 关键词列表
 keywords = ["Module", "Cell", "Voltage"]
 filtered_columns = [col for col in data.columns if all(keyword in col for keyword in keywords)]
+# print(filtered_columns)
+print(data[filtered_columns])
 df = data[filtered_columns]
+# print(df)
 df = df.drop(columns = ['Rack_Max_Voltage_Module_Cell_index','Rack_Min_Voltage_Module_Cell_index'])
 # df.to_csv(r'C:\Users\w\Desktop\data\MV.csv', index = False) 
 # 印出過濾後資料
@@ -25,16 +28,16 @@ keywords = ["Module", "Cell", "Temperature"]
 filtered_columns = [col for col in data.columns if all(keyword in col for keyword in keywords)]
 df2 = data[filtered_columns]
 df2 = df2.drop(columns = ['Rack_Max_Temperature_Module_Cell_index','Rack_Min_Temperature_Module_Cell_index'])
-f.to_csv(r'C:\Users\w\Desktop\data\MT.csv', index = False) 
+df2.to_csv(r'C:\Users\w\Desktop\data\MT.csv', index = False) 
 # 印出過濾後資料
 
-# x_min, x_max = 3175, 3375  
-# y_min, y_max = 440, 520 
+x_min, x_max = 3175, 3375  
+y_min, y_max = 440, 520 
 
 
-# for i in range(0,200):
-#     d1 = df[i:i+1].T
-#     d2 = df2[i:i+1].T.loc[df2[i:i+1].T.index.repeat(4)].set_index(df[i:i+1].T.index)
+for i in range(0,200):
+    d1 = df[i:i+1].T
+    d2 = df2[i:i+1].T.loc[df2[i:i+1].T.index.repeat(4)].set_index(df[i:i+1].T.index)
 
 #     X = pd.concat([d1,d2],axis=1)
 #     X.columns = ["Voltage","Temperature"]
