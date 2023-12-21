@@ -17,13 +17,16 @@ data = pd.read_csv(r'C:\Users\w\Downloads\Picture_data_2.csv')  # 将'your_data.
 keywords = ["Module", "Cell", "Voltage"]
 filtered_columns = [col for col in data.columns if all(keyword in col for keyword in keywords)]
 df = data[filtered_columns]
-print(df)
 df = df.drop(columns = ['Rack_Max_Voltage_Module_Cell_index','Rack_Min_Voltage_Module_Cell_index'])
+# df.to_csv(r'C:\Users\w\Desktop\data\MV.csv', index = False) 
+# 印出過濾後資料
 
-# keywords = ["Module", "Cell", "Temperature"]
-# filtered_columns = [col for col in data.columns if all(keyword in col for keyword in keywords)]
-# df2 = data[filtered_columns]
-# df2 = df2.drop(columns = ['Rack_Max_Temperature_Module_Cell_index','Rack_Min_Temperature_Module_Cell_index'])
+keywords = ["Module", "Cell", "Temperature"]
+filtered_columns = [col for col in data.columns if all(keyword in col for keyword in keywords)]
+df2 = data[filtered_columns]
+df2 = df2.drop(columns = ['Rack_Max_Temperature_Module_Cell_index','Rack_Min_Temperature_Module_Cell_index'])
+f.to_csv(r'C:\Users\w\Desktop\data\MT.csv', index = False) 
+# 印出過濾後資料
 
 # x_min, x_max = 3175, 3375  
 # y_min, y_max = 440, 520 
