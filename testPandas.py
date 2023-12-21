@@ -101,7 +101,12 @@ df.reset_index(drop = True)
 
 #%% 完整內容
 
+pd.set_option("display.max_columns", None)
+df
 
+# T 轉置資料
+# 注意轉置後 `head(15)` 代表選擇前 15 個欄位
+df.T.head(15)
 
 
 
