@@ -36,9 +36,25 @@ df2.to_csv(r'C:\Users\w\Desktop\data\MT.csv', index = False)
 x_min, x_max = 3175, 3375  
 y_min, y_max = 440, 520 
 
+all_data = []
 
 for i in range(0,200):
     d1 = df[i:i+1].T
     # print(d1)
     d2 = df2[i:i+1].T.loc[df2[i:i+1].T.index.repeat(4)].set_index(df[i:i+1].T.index)
-    print(d2)
+    # print(d2)
+    
+    # d2.to_csv(r'C:\Users\w\Desktop\data\mixVTdata.csv')
+    
+    X = pd.concat([d1,d2],axis=1)
+    X.columns = ["Voltage","Temperature"]
+    all_data.append(X)
+    
+# 將累積的數據合併為一個 DataFrame
+final_df = pd.concat(all_data)
+    
+print(final_df)    
+# 寫入 CSV 檔案
+final_df.to_csv(r'C:\Users\w\Desktop\data\mixVTalldata.csv')
+    
+    
