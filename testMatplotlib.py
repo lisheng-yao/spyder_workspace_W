@@ -40,7 +40,7 @@ plt.show()
 #%% figure 的兩種使用方法
 #%%  plt.figure()
 
-x = [1,2,3,4,5]
+x = [1,2,1,4,5]
 f = plt.figure()
 plt.subplot()
 plt.plot(x)
@@ -91,3 +91,5 @@ plt.subplot(224)
 plt.plot(y)
 plt.show()
 
+
+#%%
