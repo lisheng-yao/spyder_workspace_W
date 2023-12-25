@@ -12,7 +12,7 @@ from matplotlib.colors import LinearSegmentedColormap
 # 1. 读取CSV文件
 data = pd.read_csv(r'C:\Users\w\spyder_workspace_W\data\Picture_data_2.csv')  # 将'your_data.csv'替换为实际文件路径
 
-
+df = data[["Module", "Cell", "Voltage"]]
 # 关键词列表
 keywords = ["Module", "Cell", "Voltage"]
 filtered_columns = [col for col in data.columns if all(keyword in col for keyword in keywords)]
