@@ -49,6 +49,45 @@ plt.show()
 #%% fig, ax = plt.subplots()
 
 x = [1,2,3,4,5]
+y = [1,2,3,4,5]
+
 fig, ax = plt.subplots()
 ax.plot(x)
+ax.plot(y)
 plt.show()
+
+#%%
+
+x = [1,2,3,4,5]
+fig = plt.figure(facecolor="pink" , edgecolor = 'black')
+plt.subplot()
+plt.plot(x)
+plt.show()
+
+#%%
+
+x = [1,2,3,4,5]
+y = [5,4,3,2,1]
+z = [2,2,2,2,2]
+fig1 = plt.figure(num=1)
+plt.subplot(2,2,1)
+plt.plot(x)
+fig2 = plt.figure(num=fig1)
+plt.subplot(2,2,1)
+plt.plot(y)
+fig3 = plt.figure(num=1)
+plt.subplot(2,2,1)
+plt.plot(z)
+plt.show()
+
+#%%
+
+x = [1,2,3,4,5]
+y = [5,4,3,2,1]
+fig = plt.figure()
+plt.subplot(221)
+plt.plot(x)
+plt.subplot(224)
+plt.plot(y)
+plt.show()
+
