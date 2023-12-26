@@ -97,16 +97,33 @@ plt.show()
 x = [1,2,3,4,5]
 y = [5,4,3,2,1]
 
-fig, ax = plt.subplots(2,2)
+fig, ax = plt.subplots(2,2) # 回傳2個物件
 ax[0][0].plot(x)
 ax[1][1].plot(y)
+plt.tight_layout()
 plt.show()
 
-#%%
+#%% 
 
 x = [1,2,3,4,5]
 y = [5,4,3,2,1]
 fig, ax = plt.subplots()
+print(ax)
 ax.plot(x)
 ax.plot(y)
 plt.show()
+
+#%% 圖表標籤
+
+x = [1,2,3,4,5]
+
+fig = plt.figure()
+plt.plot(x)
+plt.title("test")
+plt.xlabel("x")
+plt.ylabel("y")
+
+
+
+
+
