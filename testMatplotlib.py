@@ -93,3 +93,20 @@ plt.show()
 
 
 #%%
+
+x = [1,2,3,4,5]
+y = [5,4,3,2,1]
+
+fig, ax = plt.subplots(2,2)
+ax[0][0].plot(x)
+ax[1][1].plot(y)
+plt.show()
+
+#%%
+
+x = [1,2,3,4,5]
+y = [5,4,3,2,1]
+fig, ax = plt.subplots()
+ax.plot(x)
+ax.plot(y)
+plt.show()
