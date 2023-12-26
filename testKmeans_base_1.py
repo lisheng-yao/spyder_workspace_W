@@ -43,3 +43,14 @@ plt.scatter(x_scaled[:,2], x_scaled[:,3], c=model.labels_) # 使用縮放後的�
 plt.xlabel('petal length (scaled)')
 plt.ylabel('petal width (scaled)')
 plt.show()
+
+
+#%%
+
+DistanceList = []
+for i in range(1,11): #測試將資料分為1~10群
+    KM = KMeans(n_clusters=i, init='k-means++', n_init=10, random_state=42)
+    KM.fit(df) #建立模型
+    DistanceList.append(KM.inertia_) #求出每個Cluster內的資料與其中心點之平方距離和，並用List記錄起來
+plt.plot(range(1,11), DistanceList)
+plt.show()
