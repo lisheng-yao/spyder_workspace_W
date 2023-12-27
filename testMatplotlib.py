@@ -121,7 +121,10 @@ fig = plt.figure()
 plt.plot(x)
 plt.title("test")
 plt.xlabel("x")
+plt.xlim(0 ,20)
+plt.xticks([0,1,2,3,4])
 plt.ylabel("y")
+plt.show()
 
 
 
