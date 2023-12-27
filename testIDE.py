@@ -27,18 +27,26 @@ def save_file():
         output_file.write(text)
     window.title(f"Simple Python IDE - {filepath}")
 
+# 創建tk物件
 window = tk.Tk()
 window.title("Simple Python IDE")
 
+# 介面布局
 window.rowconfigure(0, minsize=800, weight=1)
 window.columnconfigure(1, minsize=800, weight=1)
 
+# 文本編輯器
 txt_edit = tk.Text(window, bg='#4F4F4F',fg='white')
+
+# 按鈕框架
 fr_buttons = tk.Frame(window, bg='#3C3C3C')
+
+# 創建按鈕
 btn_open = tk.Button(fr_buttons, text="Open", command=open_file, width=17)
 btn_save = tk.Button(fr_buttons, text="Save", command=save_file)
 
-btn_open.grid(row=0, column=0, sticky="ew", padx=5, pady=15)
+# gird 布局管理器
+btn_open.grid(row=0, column=0, sticky="ew", padx=5, pady=10)
 btn_save.grid(row=1, column=0, sticky="ew", padx=5)
 
 fr_buttons.grid(row=0, column=0, sticky="ns")
