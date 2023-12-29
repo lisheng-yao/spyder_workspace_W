@@ -44,6 +44,9 @@ plt.xlabel('petal length (scaled)')
 plt.ylabel('petal width (scaled)')
 plt.show()
 
+# 我不知道現在哪一家
+# 但我知道你是個婊子
+
 
 #%%
 
