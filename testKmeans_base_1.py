@@ -39,7 +39,7 @@ x_scaled = scaler.fit_transform(df) # X 是包含特徵數據的數組
 model = KMeans(n_clusters=2, init='k-means++', n_init=10, random_state=42)
 model.fit(x_scaled)
 
-plt.scatter(x_scaled[:,2], x_scaled[:,3], c=model.labels_) # 使用縮放後的特徵
+plt.scatter(x_scaled[:,2], x_scaled[:,3Temperature], c=model.labels_) # 使用縮放後的特徵
 plt.xlabel('petal length (scaled)')
 plt.ylabel('petal width (scaled)')
 plt.show()
