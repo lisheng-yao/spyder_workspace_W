@@ -48,7 +48,7 @@ for i in range(0,200):
     plt.scatter(X['Voltage'], X['Temperature'], c=X['Temperature'], cmap='rainbow')
     plt.xlabel('Voltage')
     plt.ylabel('Temperature')
-    plt.title('Scatter Plot with Custom Colormap')
+    plt.title(f'Scatter Plot with Custom Colormapf {i+1}')
     plt.xlim(x_min, x_max)  # 固定 X 轴范围
     plt.ylim(y_min, y_max)  # 固定 Y 轴范围
     plt.show()

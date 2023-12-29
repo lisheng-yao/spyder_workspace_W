@@ -10,16 +10,16 @@ import pandas as pd
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
-# 加载数据
-data = pd.read_csv(r'C:\Users\w\Desktop\data\123.csv')  # 替换为您的文件路径
+# 加载
+data = pd.read_csv(r'C:\Users\w\Desktop\data\123.csv')
 
-# 按每16行分割数据
-n = 16  # 每组数据的行数
+# 每16行分割
+n = 16 
 grouped_data = [data[i:i + n] for i in range(0, data.shape[0], n)]
 
 
 
-# 为每组数据应用 K-Means 聚类并绘图
+
 for i, group in enumerate(grouped_data):
     X = group[['Voltage', 'Temperature']]
     kmeans = KMeans(n_clusters=3, n_init=10, random_state=42)
