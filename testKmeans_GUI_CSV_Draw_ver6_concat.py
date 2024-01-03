@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Dec 29 17:31:12 2023
+Created on Wed Jan  3 14:06:05 2024
 
 @author: w
 """
-
 
 import tkinter as tk
 from tkinter import filedialog

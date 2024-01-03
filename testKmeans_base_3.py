@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 # 讀檔案
 data = pd.read_csv(r'C:\Users\w\Desktop\data\123.csv')
 
-# 每16行分割
-n = 16 
+# 每256行分割
+n = 256 
 grouped_data = [data[i:i + n] for i in range(0, data.shape[0], n)]
 
 
