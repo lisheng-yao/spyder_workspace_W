@@ -25,7 +25,7 @@ def upload_csv():
 def draw_next_plot():
     global data, current_index, canvas
 
-    if current_index >= 200:  # 這裡的 200 是假設的最大圖表數量
+    if current_index >= 200:  #  200是假設的最大圖表數量
         print("所有圖表已顯示完畢")
         return
 
@@ -50,11 +50,11 @@ def draw_plot(direction):
 def process_and_visualize(index):
     # ...（省略數據處理部分）
     
-def on_previous_button_click():
-    draw_plot("previous")
+# def on_previous_button_click():
+    # draw_plot("previous")
 
-def on_next_button_click():
-    draw_plot("next")
+# def on_next_button_click():
+#     draw_plot("next")
 
     # 數據處理邏輯
     keywords = ["Module", "Cell", "Voltage"]
