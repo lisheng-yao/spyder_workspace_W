@@ -49,7 +49,8 @@ def draw_plot(direction):
 
 def process_and_visualize(index):
     # ...（省略數據處理部分）
-    
+
+# 功能按鈕新增中    
 # def on_previous_button_click():
     # draw_plot("previous")
 
