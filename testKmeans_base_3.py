@@ -10,7 +10,7 @@ import pandas as pd
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
-# 加载
+# 讀檔案
 data = pd.read_csv(r'C:\Users\w\Desktop\data\123.csv')
 
 # 每16行分割
