@@ -43,7 +43,7 @@ Form.resize(300, 200)
 label = QtWidgets.QLabel(Form)
 label.setGeometry(20, 20, 200, 150)
 
-img = QtGui.QImage('mona.jpg')                 # 讀取圖片
+img = QtGui.QImage('123.jpg')                 # 讀取圖片
 label.setPixmap(QtGui.QPixmap.fromImage(img))  # 加入圖片
 
 Form.show()
