@@ -14,9 +14,21 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Dialog
+   <string notr="true">QDialog
 {
 background-color: #5B5B5B;
+}
+
+QLabel
+{
+color: white;
+}
+
+QPushButton , QComboBox
+{
+
+background-color:  #FF8000;
+
 }</string>
   </property>
   <property name="sizeGripEnabled">
@@ -36,14 +48,9 @@ background-color: #5B5B5B;
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="csv_button">
       <property name="styleSheet">
-       <string notr="true">#pushButton{
-
-background-color: 	#FF8000;
-
-
-}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>上傳資料csv</string>
@@ -70,9 +77,9 @@ background-color: 	#FF8000;
      </spacer>
     </item>
     <item>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="csv_path">
       <property name="styleSheet">
-       <string notr="true">color:white;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>請上傳檔案</string>
@@ -91,11 +98,7 @@ background-color: 	#FF8000;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">#comboBox{
-
-background-color: 	#FF8000
-
-}</string>
+    <string notr="true"/>
    </property>
    <item>
     <property name="text">
@@ -117,13 +120,13 @@ background-color: 	#FF8000
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>110</y>
+     <y>100</y>
      <width>96</width>
      <height>39</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:white;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>機器學習模型選擇</string>
@@ -139,10 +142,7 @@ background-color: 	#FF8000
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">#label, #label_2{
-
-color:white;
-}</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>pyqt_法國我</string>
@@ -154,9 +154,9 @@ color:white;
  </resources>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>csv_button</sender>
    <signal>clicked()</signal>
-   <receiver>pushButton</receiver>
+   <receiver>csv_button</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
