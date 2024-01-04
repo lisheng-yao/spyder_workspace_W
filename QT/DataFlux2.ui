@@ -28,9 +28,9 @@ background-color: #5B5B5B;
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>70</y>
-     <width>351</width>
+     <x>20</x>
+     <y>60</y>
+     <width>461</width>
      <height>41</height>
     </rect>
    </property>
@@ -70,83 +70,83 @@ background-color: 	#FF8000;
      </spacer>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox">
-      <property name="styleSheet">
-       <string notr="true">#comboBox{
-
-background-color: 	#FF8000
-
-}</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>模型1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>模型2</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>模型3</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>291</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="styleSheet">
-       <string notr="true">#label, #label_2{
-
-color:white;
-}</string>
-      </property>
-      <property name="text">
-       <string>pyqt_法國我</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Expanding</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>178</width>
-        <height>36</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="label_3">
       <property name="styleSheet">
        <string notr="true">color:white;</string>
       </property>
       <property name="text">
-       <string>機器學習模型選擇</string>
+       <string>請上傳檔案</string>
       </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>150</y>
+     <width>201</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#comboBox{
+
+background-color: 	#FF8000
+
+}</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>模型1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>模型2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>模型3</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>96</width>
+     <height>39</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>機器學習模型選擇</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>289</width>
+     <height>39</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#label, #label_2{
+
+color:white;
+}</string>
+   </property>
+   <property name="text">
+    <string>pyqt_法國我</string>
+   </property>
   </widget>
  </widget>
  <resources>
@@ -160,12 +160,12 @@ color:white;
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
-     <y>101</y>
+     <x>164</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
-     <x>154</x>
-     <y>101</y>
+     <x>164</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
