@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QFileDialog
 
 class Controller2:
     def __init__(self, ui):
-        # super().__init__()
+        super().__init__()
         self.ui = ui
 
 
