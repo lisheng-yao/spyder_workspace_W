@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         
         ## click event
-        self.pushButton = QtWidgets.QPushButton(self.frame_2, clicked = lambda: self.plot_on_canvas())
+        self.pushButton = QtWidgets.QPushButton(self.frame_2, clicked = lambda: self.plotOnCanvas())
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout_3.addWidget(self.pushButton)
         self.verticalLayout_2.addWidget(self.frame_2, 0, QtCore.Qt.AlignTop)
@@ -88,61 +88,48 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "給我印出來"))
         
-    def plot_on_canvas(self):
+    def plotOnCanvas(self):
         ##clear the canvas
-        self.canvas.figure.clf()
+        self.figure.clear()
         
         # 讀檔案
         data = pd.read_csv(r'C:\Users\w\Desktop\data\123.csv')
+
         # 每256行分割
         n = 256 
         grouped_data = [data[i:i + n] for i in range(0, data.shape[0], n)]
-        
-        # 获取当前点击的组索引
-        current_group_index = getattr(self, 'current_group_index', 0)
-        
-        # 获取当前点击的组
-        current_group = grouped_data[current_group_index]
-        X = current_group[['Voltage', 'Temperature']]
-        kmeans = KMeans(n_clusters=3, n_init=10, random_state=42)
-        kmeans.fit(X)
-        
-        
-        # 调整子图之间的垂直间距
-        self.canvas.figure.subplots_adjust(hspace=0.5)
-        
-        # 创建一个新的子图
-        ax = self.canvas.figure.add_subplot(len(grouped_data), 1, current_group_index+1, aspect='auto')
-        scatter = ax.scatter(X['Voltage'], X['Temperature'], c=kmeans.labels_, cmap='viridis')
-        ax.set_title(f'K-Means Clustering of Voltage and Temperature - Group {current_group_index+1}')
-        ax.set_xlabel('Voltage')
-        ax.set_ylabel('Temperature')
-        ax.set_xlim(3280, 3375)
-        ax.set_ylim(440, 520)
-        
-        plt.colorbar(scatter, ax=ax, label='Cluster Label')
-        
+
+
+
+    
+        for i, group in enumerate(grouped_data):
+            X = group[['Voltage', 'Temperature']]
+            kmeans = KMeans(n_clusters=3, n_init=10, random_state=42)
+            kmeans.fit(X)
+            
+            # 使用 self.figure 和 self.canvas 來繪製圖形
+            ax = self.figure.add_subplot(111)
+            sc = ax.scatter(X['Voltage'], X['Temperature'], c=kmeans.labels_, cmap='viridis')
+            ax.scatter(X['Voltage'], X['Temperature'], c=kmeans.labels_, cmap='viridis')
+            ax.set_title(f'K-Means Clustering of Voltage and Temperature - Group {i+1}')
+            ax.set_xlabel('Voltage')
+            ax.set_ylabel('Temperature')
+            ax.set_xlim(3280, 3375)
+            ax.set_ylim(440, 520)
+           
+            # 添加顏色條
+            cbar = self.figure.colorbar(sc, ax=ax, label='Cluster Label')
+
+            # plt.figure(figsize=(10, 6),dpi=100)
+            # plt.scatter(X['Voltage'], X['Temperature'], c=kmeans.labels_, cmap='viridis')
+            # plt.title(f'K-Means Clustering of Voltage and Temperature - Group {i+1}')
+            # plt.xlabel('Voltage')
+            # plt.ylabel('Temperature')
+            # plt.xlim(3280, 3375)
+            # plt.ylim(440, 520)
+    
+            # plt.colorbar(label='Cluster Label')
         self.canvas.draw()
-        
-        # 更新下一次点击的组索引
-        self.current_group_index = (current_group_index + 1) % len(grouped_data)
-
-        # for i, group in enumerate(grouped_data):
-        #     X = group[['Voltage', 'Temperature']]
-        #     kmeans = KMeans(n_clusters=3, n_init=10, random_state=42)
-        #     kmeans.fit(X)
-
-        #     ax = self.figure.add_subplot(111)
-        #     scatter = ax.scatter(X['Voltage'], X['Temperature'], c=kmeans.labels_, cmap='viridis')
-        #     ax.set_title(f'K-Means Clustering of Voltage and Temperature - Group {i+1}')
-        #     ax.set_xlabel('Voltage')
-        #     ax.set_ylabel('Temperature')
-        #     ax.set_xlim(3280, 3375)
-        #     ax.set_ylim(440, 520)
-        
-        #     plt.colorbar(scatter, ax=ax, label='Cluster Label')
-        # self.canvas.draw()
-        #     # plt.show()
 
 
 if __name__ == "__main__":
