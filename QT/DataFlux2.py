@@ -9,7 +9,6 @@
 
 
 from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget, QVBoxLayout, QComboBox, QLineEdit
 from controller2 import Controller2 
 
 class Ui_Dialog(object):
@@ -34,8 +33,6 @@ class Ui_Dialog(object):
 "}")
         Dialog.setSizeGripEnabled(False)
         Dialog.setModal(False)
-        
-        # 左上區域
         self.horizontalLayoutWidget = QtWidgets.QWidget(Dialog)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(20, 60, 461, 41))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
@@ -54,34 +51,17 @@ class Ui_Dialog(object):
         self.csv_path.setObjectName("csv_path")
         self.horizontalLayout.addWidget(self.csv_path)
         
-        # 右上區域
         self.comboBox = QtWidgets.QComboBox(Dialog)
-        self.stackedWidget = QStackedWidget()
-        
-        # 頁面1
-        self.page1 = QtWidgets.QWidget()
-        self.page1Layout = QVBoxLayout(self.page1)
-        self.page1Layout.addWidget(QLineEdit("Page 1 Option"))
-        self.stackedWidget.addWidget(self.page1)
-        
-        # 頁面2，這裡可以添加其他頁面
-        # self.page2 = QWidget()
-        # self.page2Layout = QVBoxLayout(self.page2)
-        # self.page2Layout.addWidget(QLineEdit("Page 2 Option"))
-        # self.stackedWidget.addWidget(self.page2)
-        
         self.comboBox.setGeometry(QtCore.QRect(20, 150, 201, 21))
         self.comboBox.setStyleSheet("")
         self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("Kmeans")
-        self.comboBox.addItem("模型2")
-        self.comboBox.addItem("模型3")
-        
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
         self.label_2 = QtWidgets.QLabel(Dialog)
         self.label_2.setGeometry(QtCore.QRect(20, 100, 96, 39))
         self.label_2.setStyleSheet("")
         self.label_2.setObjectName("label_2")
-        
         self.label = QtWidgets.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(20, 20, 289, 39))
         self.label.setStyleSheet("")
@@ -89,22 +69,22 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
         
-        # 創建 Controller2 的實例
         self.controller2_obj = Controller2(self)
-        # 連接按鈕點擊事件到 Controller2 的槽函數
-        self.csv_button.clicked.connect(self.controller2_obj.handle_upload_button_click)
-        # 連接 QComboBox 的 currentIndexChanged 信號到 Controller2 的槽函數
-        self.comboBox.currentIndexChanged.connect(self.controller2_obj.handle_combobox_changed)
-        
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.csv_button.clicked.connect(self.controller2_obj.handle_upload_button_click) # 按鈕動作
+        QtCore.QMetaObject.connectSlotsByName(Dialog) # 自動連接 UI 元件的信號和槽
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.csv_button.setText(_translate("Dialog", "上傳資料csv"))
         self.csv_path.setText(_translate("Dialog", "請上傳檔案"))
+        self.comboBox.setItemText(0, _translate("Dialog", "Kmeans"))
+        self.comboBox.setItemText(1, _translate("Dialog", "模型2"))
+        self.comboBox.setItemText(2, _translate("Dialog", "模型3"))
         self.label_2.setText(_translate("Dialog", "機器學習模型選擇"))
         self.label.setText(_translate("Dialog", "pyqt_法國我"))
+# import qt_rc
+
 
 if __name__ == "__main__":
     import sys
@@ -114,4 +94,3 @@ if __name__ == "__main__":
     ui.setupUi(Dialog) # 設置 UI 對象
     Dialog.show()
     sys.exit(app.exec_())
-
