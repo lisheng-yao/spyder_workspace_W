@@ -67,16 +67,17 @@ class Ui_Dialog(object):
         self.label.setObjectName("label")
 
         self.retranslateUi(Dialog)
-        self.controller2 = Controller2(self)
-        self.csv_button.clicked.connect(self.controller2.handle_upload_button_click) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        
+        self.controller2_obj = Controller2(self)
+        self.csv_button.clicked.connect(self.controller2_obj.handle_upload_button_click) # 按鈕動作
+        QtCore.QMetaObject.connectSlotsByName(Dialog) # 自動連接 UI 元件的信號和槽
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.csv_button.setText(_translate("Dialog", "上傳資料csv"))
         self.csv_path.setText(_translate("Dialog", "請上傳檔案"))
-        self.comboBox.setItemText(0, _translate("Dialog", "模型1"))
+        self.comboBox.setItemText(0, _translate("Dialog", "Kmeans"))
         self.comboBox.setItemText(1, _translate("Dialog", "模型2"))
         self.comboBox.setItemText(2, _translate("Dialog", "模型3"))
         self.label_2.setText(_translate("Dialog", "機器學習模型選擇"))
@@ -87,8 +88,8 @@ class Ui_Dialog(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
+    Dialog = QtWidgets.QDialog() # 建立 QDialog 的實例，創建主窗口
+    ui = Ui_Dialog() # 實例化 UI 對象，
+    ui.setupUi(Dialog) # 設置 UI 對象
     Dialog.show()
     sys.exit(app.exec_())

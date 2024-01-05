@@ -11,7 +11,7 @@ class Controller2:
 
 
     def handle_upload_button_click(self):
-        options = QFileDialog.Options()
+        options = QFileDialog.Options() # 配置文件對話框物件
         file_path, _ = QFileDialog.getOpenFileName(None, "選擇 CSV 文件", "", "CSV Files (*.csv);;All Files (*)", options=options)
 
         if file_path:
