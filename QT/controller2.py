@@ -28,6 +28,6 @@ class Controller2:
         # if model_name == "Kmeans":
         #     self.ui.stackedWidget.setCurrentIndex(0)  # 顯示第一個頁面
         # elif model_name == "模型2":
-        #     self.ui.stackedWidget.setCurrentIndex(1)  # 顯示第二個頁面，依此類推
+        #     self.ui.stackedWidget.setCurrentIndex(1)  # 顯示第二個頁面
         # elif model_name == "模型3":
-        #     self.ui.stackedWidget.setCurrentIndex(2)  # 顯示第三個頁面，依此類推
+        #     self.ui.stackedWidget.setCurrentIndex(2)  # 顯示第三個頁面
