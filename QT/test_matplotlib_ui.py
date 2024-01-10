@@ -50,8 +50,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         
-        ## click event
-        self.pushButton = QtWidgets.QPushButton(self.frame_2, clicked = lambda: self.plotOnCanvas())
+        ## click event lambda　and normal
+        # self.pushButton = QtWidgets.QPushButton(self.frame_2, clicked = lambda: self.plotOnCanvas())
+        self.pushButton = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton.clicked.connect(self.plotOnCanvas)
+        
+        
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout_3.addWidget(self.pushButton)
         self.verticalLayout_2.addWidget(self.frame_2, 0, QtCore.Qt.AlignTop)
