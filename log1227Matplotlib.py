@@ -18,7 +18,7 @@ df['Timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce', format='%Y/%m
 
 # 過濾掉無效的時間戳數據
 df = df.dropna(subset=['Timestamp'])
-print(df)
+# print(df)
 
 
 # 過濾數據，只保留2023/10/8 00:00:00之後的數據
@@ -27,11 +27,16 @@ df_filtered = df[df['Timestamp'] >= '2023-10-07 00:00:00']
 
 # 按每分鐘進行分組並計算每分鐘的次
 df_resampled = df_filtered.resample('1T', on='Timestamp').count()
-df_resampled.to_csv(r"C:\Users\w\Desktop\data\errortime1007.csv" )
+# 將 Timestamp 轉換為字串，只保留時和分
+df_resampled.index = df_resampled.index.strftime('%H:%M')
+# df_resampled.to_csv(r"C:\Users\w\Desktop\data\errortime1007_1.csv" )
+
+
+
 
 # 繪製長條圖
 plt.figure(figsize=(10, 6))
-plt.bar(df_resampled.index, df_resampled['Information'], width=0.8)
+plt.bar(df_resampled.index, df_resampled['Information'], width=0.4,color='black')
 
 # 設置 x 軸標籤格式
 plt.gca().xaxis.set_major_locator(MaxNLocator(prune='both'))
