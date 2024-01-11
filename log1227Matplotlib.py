@@ -18,7 +18,7 @@ df['Timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce', format='%Y/%m
 
 # 過濾掉無效的時間戳數據
 df = df.dropna(subset=['Timestamp'])
-# print(df)
+   # print(df)
 
 
 # 過濾數據，只保留2023/10/8 00:00:00之後的數據
