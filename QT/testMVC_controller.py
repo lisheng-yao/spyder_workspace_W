@@ -20,18 +20,20 @@ class TestMVC_controller(QMainWindow):
         
         
         self.view.pushButton.clicked.connect(self.button_click)
+        self.click_count = 0
         
     def button_click(self):
-        self.view.pushButton.setText("你才按不到")
+        self.click_count += 1
+        self.view.pushButton.setText(str(self.click_count))
         
         
         # 生成隨機位置
-        random_a = random.randint(60, 780)
-        random_b = random.randint(30, 450)
+        random_a = random.randint(60, 680)
+        random_b = random.randint(30, 550)
         
         # 更新按钮位置
         self.view.pushButton.setGeometry(random_a, random_b, 111, 41)
-        print( str(random_a)  + str(random_b) )
+        print( "x: " + str(random_a)  +   " y : " +str(random_b) )
 
 
 if __name__ == '__main__':
