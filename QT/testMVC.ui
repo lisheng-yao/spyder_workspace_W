@@ -24,6 +24,14 @@ background-color:#FF7400;
 }
 
 
+QPushButton:hover {
+        color: :#FF7400;
+        background: 'black';
+    }
+
+
+
+
 QMainWindow 
 
 {
@@ -48,17 +56,30 @@ background-color:#4F4A46;
      <string>按的到嗎</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="upload">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>360</y>
+      <x>50</x>
+      <y>50</y>
       <width>93</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>上傳CSV</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>60</y>
+      <width>58</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>未上傳檔案</string>
     </property>
    </widget>
   </widget>

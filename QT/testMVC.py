@@ -39,6 +39,12 @@ class Ui_MainWindow(object):
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(340, 170, 111, 41))
         self.pushButton.setObjectName("pushButton")
+        self.upload = QtWidgets.QPushButton(self.centralwidget)
+        self.upload.setGeometry(QtCore.QRect(50, 50, 93, 28))
+        self.upload.setObjectName("upload")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(170, 60, 58, 15))
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -51,6 +57,8 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "按的到嗎"))
+        self.upload.setText(_translate("MainWindow", "上傳CSV"))
+        self.label.setText(_translate("MainWindow", "未上傳檔案"))
 
 
 if __name__ == "__main__":
