@@ -17,10 +17,9 @@ class TestMVC_controller(QMainWindow):
         self.view = testMVC.Ui_MainWindow()
         self.view.setupUi(self)
         self.view.retranslateUi(self)
-        
-        
         self.view.pushButton.clicked.connect(self.button_click)
         self.click_count = 0
+        
         
     def button_click(self):
         self.click_count += 1
@@ -34,7 +33,8 @@ class TestMVC_controller(QMainWindow):
         # 更新按钮位置
         self.view.pushButton.setGeometry(random_a, random_b, 111, 41)
         print( "x: " + str(random_a)  +   " y : " +str(random_b) )
-
+    
+    
 
 if __name__ == '__main__':
     import sys
