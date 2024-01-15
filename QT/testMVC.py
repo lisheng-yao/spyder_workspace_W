@@ -25,6 +25,14 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
+"QPushButton:hover {\n"
+"        color: :#FF7400;\n"
+"        background: #FFFF00;\n"
+"    }\n"
+"\n"
+"\n"
+"\n"
+"\n"
 "QMainWindow \n"
 "\n"
 "{\n"
@@ -43,7 +51,7 @@ class Ui_MainWindow(object):
         self.upload.setGeometry(QtCore.QRect(50, 50, 93, 28))
         self.upload.setObjectName("upload")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(170, 60, 58, 15))
+        self.label.setGeometry(QtCore.QRect(170, 60, 931, 16))
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
