@@ -42,7 +42,7 @@ class TestMVC_controller(QMainWindow):
     
         if file_path:
             print(file_path)
-            self.view.retranslateUi.label.setText(f"已選擇檔案：{file_path}")
+            self.view.label.setText(f"已選擇檔案：{file_path}")
     
 
 if __name__ == '__main__':
