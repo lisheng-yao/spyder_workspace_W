@@ -53,7 +53,7 @@ def process_and_visualize(index):
     if canvas is not None:
         canvas.get_tk_widget().pack_forget()
 
-    fig, ax = plt.subplots(figsize=(5, 5), dpi=100)
+    fig, ax = plt.subplots(figsize=(3, 3), dpi=70)
     ax.scatter(X['Voltage'], X['Temperature'], c=X['Temperature'], cmap='rainbow')
     ax.set_xlabel('Voltage')
     ax.set_ylabel('Temperature')

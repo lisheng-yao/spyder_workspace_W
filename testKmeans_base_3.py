@@ -23,7 +23,8 @@ grouped_data = [data[i:i + n] for i in range(0, data.shape[0], n)]
 for i, group in enumerate(grouped_data):
     X = group[['Voltage', 'Temperature']]
     kmeans = KMeans(n_clusters=3, n_init=10, random_state=42)
-    kmeans.fit(X)
+    model = kmeans.fit(X)
+    model.
 
     plt.figure(figsize=(10, 6),dpi=100)
     plt.scatter(X['Voltage'], X['Temperature'], c=kmeans.labels_, cmap='viridis')
