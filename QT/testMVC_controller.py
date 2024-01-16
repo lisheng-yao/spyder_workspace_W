@@ -3,6 +3,7 @@
 Created on Fri Jan 12 15:46:24 2024
 
 @author: w
+
 """
 import testMVC
 from PyQt5 import  QtWidgets
