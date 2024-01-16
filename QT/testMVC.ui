@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>723</width>
+    <height>603</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,8 +46,8 @@ background-color:#4F4A46;
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>170</y>
+      <x>10</x>
+      <y>0</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -80,6 +80,16 @@ background-color:#4F4A46;
     </property>
     <property name="text">
      <string>未上傳檔案</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>130</y>
+      <width>451</width>
+      <height>361</height>
+     </rect>
     </property>
    </widget>
   </widget>
