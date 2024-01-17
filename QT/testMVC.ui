@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>723</width>
-    <height>603</height>
+    <width>752</width>
+    <height>607</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -82,13 +82,13 @@ background-color:#4F4A46;
      <string>未上傳檔案</string>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>130</y>
-      <width>451</width>
-      <height>361</height>
+      <x>50</x>
+      <y>90</y>
+      <width>256</width>
+      <height>192</height>
      </rect>
     </property>
    </widget>

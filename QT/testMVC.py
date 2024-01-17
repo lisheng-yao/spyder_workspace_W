@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(723, 603)
+        MainWindow.resize(752, 607)
         MainWindow.setStyleSheet("QPushButton \n"
 "{\n"
 "\n"
@@ -44,23 +44,20 @@ class Ui_MainWindow(object):
 "")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(10, 0, 111, 41))
         self.pushButton.setObjectName("pushButton")
-        
         self.upload = QtWidgets.QPushButton(self.centralwidget)
         self.upload.setGeometry(QtCore.QRect(50, 50, 93, 28))
         self.upload.setObjectName("upload")
-        
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(170, 60, 931, 16))
         self.label.setObjectName("label")
-        
-        self.graphicsView = QtWidgets.QGraphicsView(self.centralwidget)
-        self.graphicsView.setGeometry(QtCore.QRect(150, 130, 451, 361))
-        self.graphicsView.setObjectName("graphicsView")
-        
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(50, 90, 256, 192))
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")

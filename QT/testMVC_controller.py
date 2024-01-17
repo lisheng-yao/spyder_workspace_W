@@ -8,6 +8,7 @@ Created on Fri Jan 12 15:46:24 2024
 import testMVC
 from PyQt5 import  QtWidgets
 from PyQt5.QtWidgets import QMainWindow,QFileDialog
+import pandas as pd
 import random
 
 
@@ -28,7 +29,6 @@ class TestMVC_controller(QMainWindow):
         self.click_count += 1
         self.view.pushButton.setText(str(self.click_count))
         
-        
         # 生成隨機位置
         random_a = random.randint(60, 680)
         random_b = random.randint(30, 550)
@@ -43,11 +43,16 @@ class TestMVC_controller(QMainWindow):
         file_path, _ = QFileDialog.getOpenFileName(None, "未上傳檔案", "", "CSV Files (*.csv);;All Files (*)", options=options)
     
         if file_path:
-            print(file_path)
+            print(f"已選擇檔案：{file_path}")
             self.view.label.setText(f"已選擇檔案：{file_path}")
+            self.data_preview(file_path)
     
-    def img(self):
+    def data_preview(self,file_path):
+        data = pd.read_csv(file_path)
+        print(data)
         
+        
+       
     
     
 
