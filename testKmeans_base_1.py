@@ -16,7 +16,7 @@ df = pd.DataFrame(RawData['data'],columns= RawData['feature_names'])
 
 from sklearn.cluster import KMeans
 
-# x = df.iloc[:,:] #x為所有特徵資料
+# x = df.iloc[:,:] # x為所有特徵資料
 # x
 
 

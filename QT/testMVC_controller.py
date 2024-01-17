@@ -45,6 +45,7 @@ class TestMVC_controller(QMainWindow):
             print(f"已選擇檔案：{file_path}")
             self.view.label.setText(f"已選擇檔案：{file_path}")
             self.data_preview(file_path)
+            print(self)
     
     
     def data_preview(self,file_path):
@@ -62,6 +63,7 @@ class TestMVC_controller(QMainWindow):
         
     
 
+    # def change_algorithm(self)
 
 
 
