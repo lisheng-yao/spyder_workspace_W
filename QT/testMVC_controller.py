@@ -20,6 +20,7 @@ class TestMVC_controller(QMainWindow):
         self.view.retranslateUi(self)
         self.view.pushButton.clicked.connect(self.button_click)
         self.view.upload.clicked.connect(self.upload_click)
+        self.view.graphicsView # 從這開始
         self.click_count = 0
         
         
@@ -44,6 +45,10 @@ class TestMVC_controller(QMainWindow):
         if file_path:
             print(file_path)
             self.view.label.setText(f"已選擇檔案：{file_path}")
+    
+    def img(self):
+        
+    
     
 
 if __name__ == '__main__':
