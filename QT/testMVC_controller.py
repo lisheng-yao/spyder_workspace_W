@@ -15,7 +15,7 @@ import random
 
 class TestMVC_controller(QMainWindow):
     def __init__(self):
-        super().__init__()
+        super().__init__() # 呼叫父類別(QMainWindow)的 __init__ 方法
         self.view = testMVC.Ui_MainWindow()
         self.view.setupUi(self)
         self.view.retranslateUi(self)
@@ -45,7 +45,6 @@ class TestMVC_controller(QMainWindow):
             print(f"已選擇檔案：{file_path}")
             self.view.label.setText(f"已選擇檔案：{file_path}")
             self.data_preview(file_path)
-            print(self)
     
     
     def data_preview(self,file_path):
