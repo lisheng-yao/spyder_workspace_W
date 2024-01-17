@@ -21,7 +21,6 @@ class TestMVC_controller(QMainWindow):
         self.view.retranslateUi(self)
         self.view.pushButton.clicked.connect(self.button_click)
         self.view.upload.clicked.connect(self.upload_click)
-        self.view.graphicsView # 從這開始
         self.click_count = 0
         
         
@@ -49,9 +48,11 @@ class TestMVC_controller(QMainWindow):
     
     def data_preview(self,file_path):
         data = pd.read_csv(file_path)
-        print(data)
-        
-        
+        # print(data)
+        self.view.tableWidget.setColumnCount(len(data.columns))
+        self.view.tableWidget.setRowCount(min(100, len(data)))  # 限制顯示前100筆資料
+        # 設置表頭
+        self.view.tableWidget.setHorizontalHeaderLabels(data.columns)
        
     
     
