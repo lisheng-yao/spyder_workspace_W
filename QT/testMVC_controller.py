@@ -7,7 +7,7 @@ Created on Fri Jan 12 15:46:24 2024
 """
 import testMVC
 from PyQt5 import  QtWidgets
-from PyQt5.QtWidgets import QMainWindow,QFileDialog
+from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem
 import pandas as pd
 import random
 
@@ -54,7 +54,11 @@ class TestMVC_controller(QMainWindow):
         # 設置表頭
         self.view.tableWidget.setHorizontalHeaderLabels(data.columns)
        
-    
+        for row in range(min(100,len(data))):
+            for col in range(len(data.columns)):
+                item = str(data.iloc[row,col])
+                self.view.tableWidget.setItem(row,col,QTableWidgetItem(item))
+        
     
 
 if __name__ == '__main__':

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>752</width>
-    <height>607</height>
+    <width>1036</width>
+    <height>723</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,11 @@ QPushButton:hover {
         background: #FFFF00;
     }
 
+QLabel
+{
+color: white;
 
+}
 
 
 QMainWindow 
@@ -40,7 +44,29 @@ background-color:#4F4A46;
 
 }
 
-</string>
+
+QTableWidget {
+    background-color: #23211A; /* 表格的背景色 */
+    color: white; /* 字體顏色 */
+    gridline-color: white; /* 格線顏色 */
+    font-size: 10px; /* 字體大小 */
+}
+
+
+
+QTableWidget::header {
+    font-size: 12px; /* 表頭字體大小 */
+    background-color: #23211A; /* 表頭的背景色 */
+    color: white; /* 表頭字體顏色 */
+    border: none; /* 移除表頭的邊框 */
+}
+
+QTableWidget QHeaderView::section {
+    font-size: 12px; /* 行和列索引字體大小 */
+    background-color: #23211A; /* 行和列索引的背景色 */
+    color: white; /* 行和列索引字體顏色 */
+    border: none; /* 移除行和列索引的邊框 */
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
@@ -59,8 +85,8 @@ background-color:#4F4A46;
    <widget class="QPushButton" name="upload">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>50</y>
+      <x>20</x>
+      <y>80</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -72,8 +98,8 @@ background-color:#4F4A46;
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>60</y>
+      <x>130</x>
+      <y>90</y>
       <width>931</width>
       <height>16</height>
      </rect>
@@ -85,11 +111,24 @@ background-color:#4F4A46;
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>90</y>
-      <width>256</width>
-      <height>192</height>
+      <x>20</x>
+      <y>150</y>
+      <width>371</width>
+      <height>241</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>資料預覽</string>
     </property>
    </widget>
   </widget>

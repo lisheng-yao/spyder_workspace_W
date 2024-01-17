@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(752, 607)
+        MainWindow.resize(1036, 723)
         MainWindow.setStyleSheet("QPushButton \n"
 "{\n"
 "\n"
@@ -30,7 +30,11 @@ class Ui_MainWindow(object):
 "        background: #FFFF00;\n"
 "    }\n"
 "\n"
+"QLabel\n"
+"{\n"
+"color: white;\n"
 "\n"
+"}\n"
 "\n"
 "\n"
 "QMainWindow \n"
@@ -41,29 +45,48 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "\n"
-"")
+"\n"
+"QTableWidget {\n"
+"    background-color: #23211A; /* 表格的背景色 */\n"
+"    color: white; /* 字體顏色 */\n"
+"    gridline-color: white; /* 格線顏色 */\n"
+"    font-size: 10px; /* 字體大小 */\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"QTableWidget::header {\n"
+"    font-size: 12px; /* 表頭字體大小 */\n"
+"    background-color: #23211A; /* 表頭的背景色 */\n"
+"    color: white; /* 表頭字體顏色 */\n"
+"    border: none; /* 移除表頭的邊框 */\n"
+"}\n"
+"\n"
+"QTableWidget QHeaderView::section {\n"
+"    font-size: 12px; /* 行和列索引字體大小 */\n"
+"    background-color: #23211A; /* 行和列索引的背景色 */\n"
+"    color: white; /* 行和列索引字體顏色 */\n"
+"    border: none; /* 移除行和列索引的邊框 */\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(10, 0, 111, 41))
         self.pushButton.setObjectName("pushButton")
         self.upload = QtWidgets.QPushButton(self.centralwidget)
-        self.upload.setGeometry(QtCore.QRect(50, 50, 93, 28))
+        self.upload.setGeometry(QtCore.QRect(20, 80, 93, 28))
         self.upload.setObjectName("upload")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(170, 60, 931, 16))
+        self.label.setGeometry(QtCore.QRect(130, 90, 931, 16))
         self.label.setObjectName("label")
-        
-        
-        
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(50, 90, 256, 192))
+        self.tableWidget.setGeometry(QtCore.QRect(20, 150, 371, 241))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
-        
-        
-        
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(20, 120, 58, 16))
+        self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -78,6 +101,7 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "按的到嗎"))
         self.upload.setText(_translate("MainWindow", "上傳CSV"))
         self.label.setText(_translate("MainWindow", "未上傳檔案"))
+        self.label_2.setText(_translate("MainWindow", "資料預覽"))
 
 
 if __name__ == "__main__":
