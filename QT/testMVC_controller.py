@@ -23,7 +23,7 @@ class TestMVC_controller(QMainWindow):
         self.view.upload.clicked.connect(self.upload_click)
         self.click_count = 0
         
-        
+
     def button_click(self):
         self.click_count += 1
         self.view.pushButton.setText(str(self.click_count))
@@ -46,6 +46,7 @@ class TestMVC_controller(QMainWindow):
             self.view.label.setText(f"已選擇檔案：{file_path}")
             self.data_preview(file_path)
     
+    
     def data_preview(self,file_path):
         data = pd.read_csv(file_path)
         # print(data)
@@ -60,6 +61,35 @@ class TestMVC_controller(QMainWindow):
                 self.view.tableWidget.setItem(row,col,QTableWidgetItem(item))
         
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     import sys
