@@ -6,8 +6,8 @@ Created on Fri Jan 12 15:46:24 2024
 
 """
 import testMVC
-from PyQt5 import  QtWidgets
-from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem, QStackedWidget, QComboBox
+from PyQt5 import  QtWidgets, QtGui
+from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem
 import pandas as pd
 import random
 
@@ -82,10 +82,8 @@ class TestMVC_controller(QMainWindow):
 # 2.
 
 
-
 # 在跟W討論時，沒有著重在這些
 # 作為RD我的資質不好，但我邏輯尚可
-
 
 
 

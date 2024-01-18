@@ -172,19 +172,6 @@ QTableWidget QHeaderView::section {
      <string>算法選擇 / 參數調整</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>670</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>匯出模型</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
@@ -467,6 +454,38 @@ QTableWidget QHeaderView::section {
      </widget>
     </widget>
    </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>10</y>
+      <width>411</width>
+      <height>101</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>130</y>
+      <width>541</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QWidget" name="widget" native="true"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>匯出模型</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>stackedWidget</zorder>
    <zorder>pushButton</zorder>
    <zorder>upload</zorder>
@@ -478,6 +497,7 @@ QTableWidget QHeaderView::section {
    <zorder>pushButton_2</zorder>
    <zorder>pushButton_3</zorder>
    <zorder>label_upload_model</zorder>
+   <zorder>graphicsView</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
