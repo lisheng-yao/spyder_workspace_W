@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1036</width>
-    <height>723</height>
+    <width>1049</width>
+    <height>801</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="toolTip">
-   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;描述：指定要將數據分割成的簇的數量。&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;推薦：使用者可能需要根據數據的性質和業務需求選擇適當的簇數量。可以嘗試不同的簇數量，然後使用一些評估指標（如輪廓系數、肘部法則等）來選擇最佳的簇數量。&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   <string/>
   </property>
   <property name="styleSheet">
    <string notr="true">QPushButton 
@@ -71,7 +71,7 @@ QTableWidget QHeaderView::section {
     border: none; /* 移除行和列索引的邊框 */
 }
 
-QGraphicsView
+#graphicsView_logo
 
 {
 	background-color:#4F4A46;
@@ -123,7 +123,7 @@ QGraphicsView
      <rect>
       <x>30</x>
       <y>130</y>
-      <width>371</width>
+      <width>391</width>
       <height>241</height>
      </rect>
     </property>
@@ -214,10 +214,10 @@ QGraphicsView
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>370</y>
       <width>441</width>
-      <height>341</height>
+      <height>421</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -251,10 +251,10 @@ QGraphicsView
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>20</x>
         <y>60</y>
         <width>371</width>
-        <height>271</height>
+        <height>333</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -274,7 +274,7 @@ QGraphicsView
        <item>
         <widget class="QSpinBox" name="spinBox_n_clusters">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -297,7 +297,7 @@ QGraphicsView
        <item>
         <widget class="QComboBox" name="comboBox_init">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -356,6 +356,12 @@ QGraphicsView
        </item>
        <item>
         <widget class="QSpinBox" name="spinBox_tol">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;收斂閾值 (tol):&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;描述：指定算法收斂的閾值，即當簇中心點的變化小於此閾值時，算法停止迭代。&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;推薦：根據需要調整。較小的值可能會導致更精確的收斂，但也可能增加運行時間。&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
@@ -374,7 +380,7 @@ QGraphicsView
        <item>
         <widget class="QComboBox" name="comboBox_metric">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -417,13 +423,20 @@ QGraphicsView
        <item>
         <widget class="QSpinBox" name="spinBox">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;隨機數種子 (random_state):&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;描述：指定隨機數生成器的種子，以確保每次運行都得到相同的結果。&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;推薦：在調試和複現實驗結果時使用，可以使結果更可控。&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_plot">
+         <property name="text">
+          <string>開始繪圖</string>
          </property>
         </widget>
        </item>
@@ -461,10 +474,10 @@ QGraphicsView
      </widget>
     </widget>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QGraphicsView" name="graphicsView_logo">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>610</x>
       <y>10</y>
       <width>411</width>
       <height>101</height>
@@ -474,18 +487,18 @@ QGraphicsView
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>130</y>
+      <x>480</x>
+      <y>160</y>
       <width>541</width>
       <height>561</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QWidget" name="widget" native="true"/>
+      <widget class="QGraphicsView" name="graphicsView_plot"/>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButton_model_export">
        <property name="text">
         <string>匯出模型</string>
        </property>
@@ -501,10 +514,10 @@ QGraphicsView
    <zorder>label_2</zorder>
    <zorder>comboBox</zorder>
    <zorder>label_3</zorder>
-   <zorder>pushButton_2</zorder>
+   <zorder>pushButton_model_export</zorder>
    <zorder>pushButton_3</zorder>
    <zorder>label_upload_model</zorder>
-   <zorder>graphicsView</zorder>
+   <zorder>graphicsView_logo</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
