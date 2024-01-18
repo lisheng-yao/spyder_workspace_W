@@ -22,6 +22,7 @@ class TestMVC_controller(QMainWindow):
         self.view.pushButton.clicked.connect(self.button_click)
         self.view.upload.clicked.connect(self.upload_click)
         self.view.comboBox.currentIndexChanged.connect(self.on_combobox_changed)
+        self.set_logo()
         self.click_count = 0
         
 
@@ -64,7 +65,14 @@ class TestMVC_controller(QMainWindow):
     # 
     def on_combobox_changed(self, index):
         self.view.stackedWidget.setCurrentIndex(index)
+        
 
+    def set_logo(self):
+        print('logo')
+        scene = QtWidgets.QGraphicsScene()
+        img = QtGui.QPixmap(r'C:\Users\w\spyder_workspace_W\QT\logo\logo.png')
+        scene.addPixmap(img)
+        self.view.graphicsView.setScene(scene)
 
 
 # 1.你有反應是1月底的沒辦法做完(某個東西)，DDL阻塞問題5分鐘能解決，卻重構了多次，gpt使用缺點

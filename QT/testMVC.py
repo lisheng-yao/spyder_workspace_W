@@ -67,6 +67,13 @@ class Ui_MainWindow(object):
 "    background-color: #23211A; /* 行和列索引的背景色 */\n"
 "    color: white; /* 行和列索引字體顏色 */\n"
 "    border: none; /* 移除行和列索引的邊框 */\n"
+"}\n"
+"\n"
+"QGraphicsView\n"
+"\n"
+"{\n"
+"    background-color:#4F4A46;\n"
+"    border: none; /* 移除表頭的邊框 */\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")

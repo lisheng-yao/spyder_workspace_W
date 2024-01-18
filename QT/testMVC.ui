@@ -69,6 +69,13 @@ QTableWidget QHeaderView::section {
     background-color: #23211A; /* 行和列索引的背景色 */
     color: white; /* 行和列索引字體顏色 */
     border: none; /* 移除行和列索引的邊框 */
+}
+
+QGraphicsView
+
+{
+	background-color:#4F4A46;
+	border: none; /* 移除表頭的邊框 */
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
