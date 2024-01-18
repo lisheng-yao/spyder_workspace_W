@@ -49,7 +49,6 @@ for i in range(0,10):
     
     
     
-    
 # 將累積的數據合併為一個 DataFrame
 final_df = pd.concat(all_data)
 
