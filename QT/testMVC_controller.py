@@ -68,9 +68,10 @@ class TestMVC_controller(QMainWindow):
         
 
     def set_logo(self):
-        print('logo')
+        print('logo已設定')
         scene = QtWidgets.QGraphicsScene()
-        img = QtGui.QPixmap(r'C:\Users\w\spyder_workspace_W\QT\logo\logo.png')
+        img = QtGui.QPixmap(r'C:\Users\w\spyder_workspace_W\QT\logo\logo_normal.png')
+        img = img.scaled(400,80)
         scene.addPixmap(img)
         self.view.graphicsView.setScene(scene)
 
