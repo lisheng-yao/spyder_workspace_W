@@ -62,7 +62,7 @@ class TestMVC_controller(QMainWindow):
         
     
 
-    # def change_algorithm(self)
+    # def on_combobox_changed(self, index):
 
 
 
