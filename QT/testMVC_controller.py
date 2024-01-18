@@ -7,7 +7,7 @@ Created on Fri Jan 12 15:46:24 2024
 """
 import testMVC
 from PyQt5 import  QtWidgets
-from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem
+from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem, QStackedWidget, QComboBox
 import pandas as pd
 import random
 
@@ -21,6 +21,7 @@ class TestMVC_controller(QMainWindow):
         self.view.retranslateUi(self)
         self.view.pushButton.clicked.connect(self.button_click)
         self.view.upload.clicked.connect(self.upload_click)
+        self.view.comboBox.currentIndexChanged.connect(self.on_combobox_changed)
         self.click_count = 0
         
 
@@ -60,10 +61,9 @@ class TestMVC_controller(QMainWindow):
                 item = str(data.iloc[row,col])
                 self.view.tableWidget.setItem(row,col,QTableWidgetItem(item))
         
-    
-
+    # 
     def on_combobox_changed(self, index):
-        self.view.stackedWidget.setCurrentIdex(index)
+        self.view.stackedWidget.setCurrentIndex(index)
 
 
 
