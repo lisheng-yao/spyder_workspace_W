@@ -110,6 +110,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.label_upload_model.sizePolicy().hasHeightForWidth())
         self.label_upload_model.setSizePolicy(sizePolicy)
         self.label_upload_model.setObjectName("label_upload_model")
+        
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setGeometry(QtCore.QRect(20, 370, 441, 341))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)

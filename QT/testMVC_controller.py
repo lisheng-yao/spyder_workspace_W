@@ -62,7 +62,8 @@ class TestMVC_controller(QMainWindow):
         
     
 
-    # def on_combobox_changed(self, index):
+    def on_combobox_changed(self, index):
+        self.view.stackedWidget.setCurrentIdex(index)
 
 
 
