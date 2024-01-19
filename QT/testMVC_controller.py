@@ -8,8 +8,11 @@ Created on Fri Jan 12 15:46:24 2024
 import testMVC
 from PyQt5 import  QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
 import pandas as pd
 import random
+from sklearn.datasets import load_iris
 
 
 
@@ -79,18 +82,32 @@ class TestMVC_controller(QMainWindow):
         self.view.graphicsView_logo.setScene(scene)
 
     def plot_click(self):
-        spinBox_n_clusters = self.view.spinBox_n_clusters.value()
+        
+        RawData = load_iris()
+        df = pd.DataFrame(RawData['data'],columns= RawData['feature_names'])
+        
+        lineEdit_n_clusters = self.view.lineEdit_n_clusters.text()
         comboBox_init = self.view.comboBox_init.currentText()
         spinBox_max_iter = self.view.spinBox_max_iter.value()
         spinBox_tol = self.view.spinBox_tol.value()
         comboBox_metric = self.view.comboBox_metric.currentText()
         spinBox_random_seed = self.view.spinBox_random_seed.value()
 
-        print(spinBox_max_iter)
 
+        model = KMeans(n_clusters = lineEdit_n_clusters,
+                       init = comboBox_init, 
+                       max_iter= spinBox_max_iter,
+                       # tol = spinBox_tol,
+                       algorithm = 'auto', 
+                       random_state = spinBox_random_seed)
+        model.fit(df)
+        
+        plt.scatter(df['petal length (cm)'],df['petal width (cm)'], c = model.labels_) #根據花瓣的長度、寬度，來畫出之間關係。c=model.labels_:代表資料點的顏色，由模型分類出來的結果，來進行分類和定義。 
+        plt.xlabel('petal length')
+        plt.ylabel('petal width')
+        plt.show()
 
-
-
+            
 
 
 # 在跟W討論時，沒有著重在這些

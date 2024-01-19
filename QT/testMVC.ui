@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1049</width>
-    <height>801</height>
+    <height>796</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -272,15 +272,9 @@ QTableWidget QHeaderView::section {
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinBox_n_clusters">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;簇的數量 (n_clusters):&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;描述：指定要將數據分割成的簇的數量。&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;推薦：使用者可能需要根據數據的性質和業務需求選擇適當的簇數量。可以嘗試不同的簇數量，然後使用一些評估指標（如輪廓系數、肘部法則等）來選擇最佳的簇數量。&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <widget class="QLineEdit" name="lineEdit_n_clusters">
+         <property name="placeholderText">
+          <string>auto</string>
          </property>
         </widget>
        </item>
@@ -307,7 +301,7 @@ QTableWidget QHeaderView::section {
          </property>
          <item>
           <property name="text">
-           <string>k-means++ (預設)</string>
+           <string>k-means++</string>
           </property>
          </item>
          <item>
@@ -341,6 +335,15 @@ QTableWidget QHeaderView::section {
         <widget class="QSpinBox" name="spinBox_max_iter">
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;最大迭代次數 (max_iter):&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;描述：指定算法運行的最大迭代次數。&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;推薦：根據數據的複雜性和規模，選擇一個適當的迭代次數。如果算法在指定次數內沒有收斂，可以嘗試增加這個值。&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>99999</number>
+         </property>
+         <property name="value">
+          <number>300</number>
          </property>
         </widget>
        </item>
@@ -390,22 +393,12 @@ QTableWidget QHeaderView::section {
          </property>
          <item>
           <property name="text">
-           <string>euclidean (預設)</string>
+           <string>lloyd</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>manhattan</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>cosine</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>precomputed</string>
+           <string>elkan</string>
           </property>
          </item>
         </widget>
@@ -430,6 +423,12 @@ QTableWidget QHeaderView::section {
          </property>
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;隨機數種子 (random_state):&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;描述：指定隨機數生成器的種子，以確保每次運行都得到相同的結果。&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;推薦：在調試和複現實驗結果時使用，可以使結果更可控。&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="maximum">
+          <number>999999</number>
+         </property>
+         <property name="value">
+          <number>100</number>
          </property>
         </widget>
        </item>
