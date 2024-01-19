@@ -9,10 +9,10 @@ import testMVC
 from PyQt5 import  QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import pandas as pd
 import random
-from sklearn.cluster import KMeans
 from sklearn.datasets import load_iris
 
 
