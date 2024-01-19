@@ -9,6 +9,7 @@ import testMVC
 from PyQt5 import  QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem
 from sklearn.cluster import KMeans
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 import pandas as pd
 import random
@@ -81,7 +82,18 @@ class TestMVC_controller(QMainWindow):
         scene.addPixmap(img)
         self.view.graphicsView_logo.setScene(scene)
 
+    #
     def plot_click(self):
+        
+        # # 清除原本的圖
+        # layout = self.view.graphicsView_plot.layout()
+        # if layout is not None:
+        #     while layout.count():
+        #         item = layout.takeAt(0)
+        #         widget = item.widget()
+        #         if widget is not None:
+        #             widget.setParent(None)
+        
         
         RawData = load_iris()
         df = pd.DataFrame(RawData['data'],columns= RawData['feature_names'])
@@ -92,26 +104,40 @@ class TestMVC_controller(QMainWindow):
         spinBox_tol = self.view.spinBox_tol.value()
         comboBox_metric = self.view.comboBox_metric.currentText()
         spinBox_random_seed = self.view.spinBox_random_seed.value()
+        
+        
+        try:
+            n_clusters = int(lineEdit_n_clusters)
+        except ValueError:
+            print("請輸入正整數")
+            return
 
-
-        model = KMeans(n_clusters = lineEdit_n_clusters,
-                       init = comboBox_init, 
-                       max_iter= spinBox_max_iter,
-                       # tol = spinBox_tol,
-                       algorithm = 'auto', 
-                       random_state = spinBox_random_seed)
+        model = KMeans(n_clusters=n_clusters,
+                   init=comboBox_init,
+                   max_iter=spinBox_max_iter,
+                   tol=float(1e-4),
+                   algorithm=comboBox_metric,
+                   random_state=spinBox_random_seed)
         model.fit(df)
         
-        plt.scatter(df['petal length (cm)'],df['petal width (cm)'], c = model.labels_) #根據花瓣的長度、寬度，來畫出之間關係。c=model.labels_:代表資料點的顏色，由模型分類出來的結果，來進行分類和定義。 
-        plt.xlabel('petal length')
-        plt.ylabel('petal width')
-        plt.show()
+        fig ,ax = plt.subplots()
+        ax.scatter(df['petal length (cm)'],df['petal width (cm)'], c = model.labels_) #根據花瓣的長度、寬度，來畫出之間關係。c=model.labels_:代表資料點的顏色，由模型分類出來的結果，來進行分類和定義。 
+        ax.set_xlabel('petal length')
+        ax.set_ylabel('petal width')
+        # ax.show()
+        
+        self.plot_to_graphics_view(fig)
+    
+    #
+    def plot_to_graphics_view(self, figure):
+        
+        canvas = FigureCanvas(figure)
+        canvas.setParent(self.view.graphicsView_plot)
+        layout = QtWidgets.QVBoxLayout(self.view.graphicsView_plot)
+        layout.addWidget(canvas)
+        
 
             
-
-
-# 在跟W討論時，沒有著重在這些
-# 作為RD我的資質不好，但我邏輯尚可
 
 
 
