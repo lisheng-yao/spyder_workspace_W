@@ -19,11 +19,8 @@
   <property name="styleSheet">
    <string notr="true">QPushButton 
 {
-
 color : 'black';
 background-color:#FF7400;
-
-
 }
 
 
@@ -35,16 +32,13 @@ QPushButton:hover {
 QLabel
 {
 color: white;
-
 }
 
 
 QMainWindow 
 
 {
-
 background-color:#4F4A46;
-
 }
 
 
@@ -76,6 +70,13 @@ QTableWidget QHeaderView::section {
 {
 	background-color:#4F4A46;
 	border: none; /* 移除表頭的邊框 */
+}
+
+QGraphicsView
+{
+
+background-color: #23211A; 
+
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -476,8 +477,8 @@ QTableWidget QHeaderView::section {
    <widget class="QGraphicsView" name="graphicsView_logo">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>10</y>
+      <x>540</x>
+      <y>30</y>
       <width>411</width>
       <height>101</height>
      </rect>

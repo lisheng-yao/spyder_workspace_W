@@ -18,11 +18,8 @@ class Ui_MainWindow(object):
         MainWindow.setToolTip("")
         MainWindow.setStyleSheet("QPushButton \n"
 "{\n"
-"\n"
 "color : \'black\';\n"
 "background-color:#FF7400;\n"
-"\n"
-"\n"
 "}\n"
 "\n"
 "\n"
@@ -34,16 +31,13 @@ class Ui_MainWindow(object):
 "QLabel\n"
 "{\n"
 "color: white;\n"
-"\n"
 "}\n"
 "\n"
 "\n"
 "QMainWindow \n"
 "\n"
 "{\n"
-"\n"
 "background-color:#4F4A46;\n"
-"\n"
 "}\n"
 "\n"
 "\n"
@@ -75,6 +69,13 @@ class Ui_MainWindow(object):
 "{\n"
 "    background-color:#4F4A46;\n"
 "    border: none; /* 移除表頭的邊框 */\n"
+"}\n"
+"\n"
+"QGraphicsView\n"
+"{\n"
+"\n"
+"background-color: #23211A; \n"
+"\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -222,7 +223,7 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName("label_5")
         self.stackedWidget.addWidget(self.page_NCC)
         self.graphicsView_logo = QtWidgets.QGraphicsView(self.centralwidget)
-        self.graphicsView_logo.setGeometry(QtCore.QRect(610, 10, 411, 101))
+        self.graphicsView_logo.setGeometry(QtCore.QRect(540, 30, 411, 101))
         self.graphicsView_logo.setObjectName("graphicsView_logo")
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setGeometry(QtCore.QRect(480, 160, 541, 561))
