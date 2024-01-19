@@ -23,6 +23,7 @@ class TestMVC_controller(QMainWindow):
         self.view.upload.clicked.connect(self.upload_click)
         self.view.comboBox.currentIndexChanged.connect(self.on_combobox_changed)
         self.set_logo()
+        self.view.pushButton_plot.clicked.connect(self.plot_click)
         self.click_count = 0
         
     #    
@@ -62,6 +63,7 @@ class TestMVC_controller(QMainWindow):
                 item = str(data.iloc[row,col])
                 self.view.tableWidget.setItem(row,col,QTableWidgetItem(item))
         
+
     # 
     def on_combobox_changed(self, index):
         self.view.stackedWidget.setCurrentIndex(index)
@@ -76,6 +78,15 @@ class TestMVC_controller(QMainWindow):
         scene.addPixmap(img)
         self.view.graphicsView_logo.setScene(scene)
 
+    def plot_click(self):
+        spinBox_n_clusters = self.view.spinBox_n_clusters.value()
+        comboBox_init = self.view.comboBox_init.currentText()
+        spinBox_max_iter = self.view.spinBox_max_iter.value()
+        spinBox_tol = self.view.spinBox_tol.value()
+        comboBox_metric = self.view.comboBox_metric.currentText()
+        spinBox_random_seed = self.view.spinBox_random_seed.value()
+
+        print(spinBox_max_iter)
 
 
 
