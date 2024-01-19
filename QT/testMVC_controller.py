@@ -8,11 +8,11 @@ Created on Fri Jan 12 15:46:24 2024
 import testMVC
 from PyQt5 import  QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem
-from sklearn.cluster import KMeans
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 import pandas as pd
 import random
+from sklearn.cluster import KMeans
 from sklearn.datasets import load_iris
 
 
@@ -28,6 +28,7 @@ class TestMVC_controller(QMainWindow):
         self.view.comboBox.currentIndexChanged.connect(self.on_combobox_changed)
         self.set_logo()
         self.view.pushButton_plot.clicked.connect(self.plot_click)
+        self.plot_layout = QtWidgets.QVBoxLayout(self.view.graphicsView_plot)
         self.click_count = 0
         
     #    
@@ -82,17 +83,10 @@ class TestMVC_controller(QMainWindow):
         scene.addPixmap(img)
         self.view.graphicsView_logo.setScene(scene)
 
-    #
+    # 從這裡開始
     def plot_click(self):
         
-        # # 清除原本的圖
-        # layout = self.view.graphicsView_plot.layout()
-        # if layout is not None:
-        #     while layout.count():
-        #         item = layout.takeAt(0)
-        #         widget = item.widget()
-        #         if widget is not None:
-        #             widget.setParent(None)
+
         
         
         RawData = load_iris()
@@ -130,14 +124,23 @@ class TestMVC_controller(QMainWindow):
     
     #
     def plot_to_graphics_view(self, figure):
-        
-        canvas = FigureCanvas(figure)
-        canvas.setParent(self.view.graphicsView_plot)
-        layout = QtWidgets.QVBoxLayout(self.view.graphicsView_plot)
-        layout.addWidget(canvas)
+        # 清除原本的圖
+        layout = self.view.graphicsView_plot.layout()
+    
+        if layout is not None:
+            QtWidgets.QApplication.processEvents()  # 暫停一下，讓事件處理發生
+            while layout.count():
+                item = layout.takeAt(0)
+                widget = item.widget()
+                if widget is not None:
+                    widget.setParent(None)
+                    widget.deleteLater()
+                    
+            canvas = FigureCanvas(figure)
+            canvas.setParent(self.view.graphicsView_plot)
+            self.plot_layout.addWidget(canvas)
         
 
-            
 
 
 
