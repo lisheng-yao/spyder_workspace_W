@@ -72,10 +72,18 @@ QTableWidget QHeaderView::section {
 	border: none; /* 移除表頭的邊框 */
 }
 
-QGraphicsView
+#graphicsView_plot
 {
 
 background-color: #23211A; 
+
+}
+
+#graphicsView_DBSCAN ,  #graphicsView_NCC
+
+{
+
+background-color: #23211A;
 
 }</string>
   </property>
@@ -246,7 +254,7 @@ background-color: #23211A;
      <enum>QFrame::Plain</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_KMeans">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -457,6 +465,16 @@ background-color: #23211A;
        <string>尚未支援該功能</string>
       </property>
      </widget>
+     <widget class="QGraphicsView" name="graphicsView_DBSCAN">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>110</y>
+        <width>256</width>
+        <height>192</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_NCC">
      <widget class="QLabel" name="label_5">
@@ -470,6 +488,16 @@ background-color: #23211A;
       </property>
       <property name="text">
        <string>尚未支援該功能</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="graphicsView_NCC">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>100</y>
+        <width>256</width>
+        <height>192</height>
+       </rect>
       </property>
      </widget>
     </widget>
