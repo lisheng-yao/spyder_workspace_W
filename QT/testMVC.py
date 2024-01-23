@@ -48,6 +48,19 @@ class Ui_MainWindow(object):
 "    font-size: 10px; /* 字體大小 */\n"
 "}\n"
 "\n"
+"QTableWidget QHeaderView::section {\n"
+"    background-color: #23211A; /* 表頭的背景色，也同時影響左上角的小方塊 */\n"
+"    color: white; /* 表頭的字體顏色 */\n"
+"    gridline-color: white; /* 格線顏色 */\n"
+"}\n"
+"\n"
+"\n"
+"QFileDialog{\n"
+"\n"
+"    background-color: #23211A;\n"
+"\n"
+"}\n"
+"\n"
 "\n"
 "\n"
 "QTableWidget::header {\n"
@@ -71,10 +84,18 @@ class Ui_MainWindow(object):
 "    border: none; /* 移除表頭的邊框 */\n"
 "}\n"
 "\n"
-"QGraphicsView\n"
+"#graphicsView_plot\n"
 "{\n"
 "\n"
 "background-color: #23211A; \n"
+"\n"
+"}\n"
+"\n"
+"#graphicsView_DBSCAN ,  #graphicsView_NCC\n"
+"\n"
+"{\n"
+"\n"
+"background-color: #23211A;\n"
 "\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -215,28 +236,35 @@ class Ui_MainWindow(object):
         self.label_4 = QtWidgets.QLabel(self.page_DBSCAN)
         self.label_4.setGeometry(QtCore.QRect(20, 60, 151, 41))
         self.label_4.setObjectName("label_4")
+        self.graphicsView_DBSCAN = QtWidgets.QGraphicsView(self.page_DBSCAN)
+        self.graphicsView_DBSCAN.setGeometry(QtCore.QRect(90, 110, 256, 192))
+        self.graphicsView_DBSCAN.setObjectName("graphicsView_DBSCAN")
         self.stackedWidget.addWidget(self.page_DBSCAN)
         self.page_NCC = QtWidgets.QWidget()
         self.page_NCC.setObjectName("page_NCC")
         self.label_5 = QtWidgets.QLabel(self.page_NCC)
         self.label_5.setGeometry(QtCore.QRect(20, 70, 141, 16))
         self.label_5.setObjectName("label_5")
+        self.graphicsView_NCC = QtWidgets.QGraphicsView(self.page_NCC)
+        self.graphicsView_NCC.setGeometry(QtCore.QRect(90, 100, 256, 192))
+        self.graphicsView_NCC.setObjectName("graphicsView_NCC")
         self.stackedWidget.addWidget(self.page_NCC)
         self.graphicsView_logo = QtWidgets.QGraphicsView(self.centralwidget)
         self.graphicsView_logo.setGeometry(QtCore.QRect(540, 30, 411, 101))
         self.graphicsView_logo.setObjectName("graphicsView_logo")
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(480, 160, 541, 561))
-        self.widget.setObjectName("widget")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget)
+        self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget.setGeometry(QtCore.QRect(480, 160, 541, 561))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.graphicsView_plot = QtWidgets.QGraphicsView(self.widget)
+        self.graphicsView_plot = QtWidgets.QGraphicsView(self.layoutWidget)
         self.graphicsView_plot.setObjectName("graphicsView_plot")
         self.verticalLayout_2.addWidget(self.graphicsView_plot)
-        self.pushButton_model_export = QtWidgets.QPushButton(self.widget)
+        self.pushButton_model_export = QtWidgets.QPushButton(self.layoutWidget)
         self.pushButton_model_export.setObjectName("pushButton_model_export")
         self.verticalLayout_2.addWidget(self.pushButton_model_export)
+        self.layoutWidget.raise_()
         self.stackedWidget.raise_()
         self.pushButton.raise_()
         self.upload.raise_()
@@ -245,7 +273,6 @@ class Ui_MainWindow(object):
         self.label_2.raise_()
         self.comboBox.raise_()
         self.label_3.raise_()
-        self.pushButton_model_export.raise_()
         self.pushButton_3.raise_()
         self.label_upload_model.raise_()
         self.graphicsView_logo.raise_()

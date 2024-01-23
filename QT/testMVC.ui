@@ -51,6 +51,14 @@ QTableWidget {
 
 
 
+QFileDialog{
+
+	background-color: #23211A;
+
+}
+
+
+
 QTableWidget::header {
     font-size: 12px; /* 表頭字體大小 */
     background-color: #23211A; /* 表頭的背景色 */
@@ -254,7 +262,7 @@ background-color: #23211A;
      <enum>QFrame::Plain</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_KMeans">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -512,7 +520,7 @@ background-color: #23211A;
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -534,6 +542,7 @@ background-color: #23211A;
      </item>
     </layout>
    </widget>
+   <zorder>layoutWidget</zorder>
    <zorder>stackedWidget</zorder>
    <zorder>pushButton</zorder>
    <zorder>upload</zorder>
@@ -542,7 +551,6 @@ background-color: #23211A;
    <zorder>label_2</zorder>
    <zorder>comboBox</zorder>
    <zorder>label_3</zorder>
-   <zorder>pushButton_model_export</zorder>
    <zorder>pushButton_3</zorder>
    <zorder>label_upload_model</zorder>
    <zorder>graphicsView_logo</zorder>

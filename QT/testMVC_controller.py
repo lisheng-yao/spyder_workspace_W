@@ -62,6 +62,16 @@ class TestMVC_controller(QMainWindow):
         self.view.tableWidget.setRowCount(min(100, len(data)))  # 限制顯示前100筆資料
         # 設置表頭
         self.view.tableWidget.setHorizontalHeaderLabels(data.columns)
+        # 更改左上角背景色
+        self.view.tableWidget.setStyleSheet("QTableCornerButton::section { background-color: #23211A; border: 1px solid white; }")
+        # 更改索引列格線顏色
+        self.view.tableWidget.verticalHeader().setStyleSheet("QHeaderView::section { background-color: #23211A; border: 1px solid white; }")
+        # 更改水平表頭格線顏色
+        self.view.tableWidget.horizontalHeader().setStyleSheet("QHeaderView::section { background-color: #23211A; border: 1px solid white; }")
+        # 更改垂直滾動條的顏色
+        self.view.tableWidget.verticalScrollBar().setStyleSheet("QScrollBar:vertical {  background: white; width: 10px; } QScrollBar::handle:vertical { background: #33363D; }")
+        # 更改水平滾動條的顏色
+        self.view.tableWidget.horizontalScrollBar().setStyleSheet("QScrollBar:horizontal { background: white; height: 10px; } QScrollBar::handle:horizontal { background: #33363D; }")
        
         for row in range(min(100,len(data))):
             for col in range(len(data.columns)):
