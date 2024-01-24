@@ -13,7 +13,7 @@ from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import pandas as pd
 import random
-from sklearn.datasets import load_iris
+import os
 
 
 
@@ -87,21 +87,55 @@ class TestMVC_controller(QMainWindow):
     
         
     # 圖片處理
+    # def set_logo(self):
+    #     scene = QtWidgets.QGraphicsScene()
+        
+    #     # 取得執行路徑
+    #     script_dir = os.path.dirname(os.path.realpath(__file__))
+        
+    #     relative_path_logo = os.path.join("logo", "logo.png")
+    #     img_path = os.path.join(script_dir, relative_path_logo)
+           
+    #     img = QtGui.QPixmap(img_path)
+    #     img = img.scaled(400,80)
+    #     scene.addPixmap(img)
+    #     self.view.graphicsView_logo.setScene(scene)
+    #     print('logo已設定')
+        
+        
+        
+    #     scene2 = QtWidgets.QGraphicsScene()
+    #     relative_path_bird = os.path.join("logo" , "bird.jpg")
+    #     img_path_bird = os.path.join(script_dir, relative_path_bird)
+        
+    #     img2 = QtGui.QPixmap(img_path_bird)
+    #     img2 = img2.scaled(360,480)
+    #     scene2.addPixmap(img2)
+    #     self.view.graphicsView_bird.setScene(scene2)
+    #     print('準備起飛')
+        
+        
+        
+   
     def set_logo(self):
-        print('logo已設定')
+        self.load_and_set_image("logo/logo.png", self.view.graphicsView_logo, (400, 80), 'logo已設定')
+        self.load_and_set_image("logo/bird.jpg", self.view.graphicsView_bird, (360, 480), '準備起飛')
+
+    def load_and_set_image(self, relative_path, graphics_view, size, log_message):
         scene = QtWidgets.QGraphicsScene()
-        img = QtGui.QPixmap(r'C:\Users\w\spyder_workspace_W\QT\logo\logo_normal.png')
-        img = img.scaled(400,80)
+        
+        # 取得執行路徑
+        script_dir = os.path.dirname(os.path.realpath(__file__))
+        
+        img_path = os.path.join(script_dir, relative_path)
+        img = QtGui.QPixmap(img_path)
+        
+        # 统一缩放操作
+        img = img.scaled(*size)
+        
         scene.addPixmap(img)
-        self.view.graphicsView_logo.setScene(scene)
-        
-        
-        print('準備起飛')
-        scene2 = QtWidgets.QGraphicsScene()
-        img2 = QtGui.QPixmap(r'C:\Users\w\spyder_workspace_W\QT\logo\bird.jpg')
-        img2 = img2.scaled(360,480)
-        scene2.addPixmap(img2)
-        self.view.graphicsView_bird.setScene(scene2)
+        graphics_view.setScene(scene)
+        print(log_message)
         
         
     
