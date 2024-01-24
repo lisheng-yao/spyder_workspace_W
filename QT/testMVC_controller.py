@@ -135,12 +135,12 @@ class TestMVC_controller(QMainWindow):
     #
     def plot_to_graphics_view(self, figure):
         # 清除原本的圖
-        layout = self.view.graphicsView_plot.layout()
+        layout = self.view.graphicsView_plot.layout() # 取得佈局 (layout)物件
     
         if layout is not None:
             QtWidgets.QApplication.processEvents()  # 暫停一下，讓事件處理發生
-            while layout.count():
-                item = layout.takeAt(0)
+            while layout.count(): # 檢查是否有部件
+                item = layout.takeAt(0) # 將部件設定為
                 widget = item.widget()
                 if widget is not None:
                     widget.setParent(None)
