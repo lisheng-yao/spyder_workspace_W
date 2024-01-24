@@ -124,6 +124,7 @@ class TestMVC_controller(QMainWindow):
 
         model = KMeans(n_clusters=n_clusters,
                    init=comboBox_init,
+                   n_init='auto',
                    max_iter=spinBox_max_iter,
                    tol=float(1e-4),
                    algorithm=comboBox_metric,
