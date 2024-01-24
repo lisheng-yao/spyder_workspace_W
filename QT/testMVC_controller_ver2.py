@@ -54,7 +54,7 @@ class TestMVC_controller(QMainWindow):
             self.view.label.setText(f"已選擇檔案：{file_path}")
             self.data_preview(file_path)
     
-    #
+    # 
     def data_preview(self,file_path):
         data = pd.read_csv(file_path)
         # print(data)
