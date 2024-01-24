@@ -92,6 +92,13 @@ class TestMVC_controller(QMainWindow):
         img = img.scaled(400,80)
         scene.addPixmap(img)
         self.view.graphicsView_logo.setScene(scene)
+        
+        print('準備起飛')
+        scene2 = QtWidgets.QGraphicsScene()
+        img2 = QtGui.QPixmap(r'C:\Users\w\spyder_workspace_W\QT\logo\bird.jpg')
+        img2 = img2.scaled(360,480)
+        scene2.addPixmap(img2)
+        self.view.graphicsView_bird.setScene(scene2)
 
     # 從這裡開始
     def plot_click(self):

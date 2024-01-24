@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1110, 948)
+        MainWindow.resize(1599, 933)
         MainWindow.setToolTip("")
         MainWindow.setStyleSheet("QPushButton \n"
 "{\n"
@@ -96,7 +96,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(280, 80, 111, 41))
+        self.pushButton.setGeometry(QtCore.QRect(1290, 80, 111, 41))
         self.pushButton.setObjectName("pushButton")
         self.upload = QtWidgets.QPushButton(self.centralwidget)
         self.upload.setGeometry(QtCore.QRect(30, 60, 93, 28))
@@ -271,6 +271,9 @@ class Ui_MainWindow(object):
         self.pushButton_model_export = QtWidgets.QPushButton(self.layoutWidget)
         self.pushButton_model_export.setObjectName("pushButton_model_export")
         self.verticalLayout_2.addWidget(self.pushButton_model_export)
+        self.graphicsView_bird = QtWidgets.QGraphicsView(self.centralwidget)
+        self.graphicsView_bird.setGeometry(QtCore.QRect(1160, 180, 371, 591))
+        self.graphicsView_bird.setObjectName("graphicsView_bird")
         self.layoutWidget.raise_()
         self.stackedWidget.raise_()
         self.pushButton.raise_()
@@ -283,6 +286,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.raise_()
         self.label_upload_model.raise_()
         self.graphicsView_logo.raise_()
+        self.graphicsView_bird.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -295,7 +299,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "按的到嗎"))
+        self.pushButton.setText(_translate("MainWindow", "按的到嗎?"))
         self.upload.setText(_translate("MainWindow", "上傳CSV"))
         self.label.setText(_translate("MainWindow", "未上傳檔案"))
         self.label_2.setText(_translate("MainWindow", "資料預覽"))

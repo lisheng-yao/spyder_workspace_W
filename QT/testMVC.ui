@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1110</width>
-    <height>948</height>
+    <width>1599</width>
+    <height>933</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -99,14 +99,14 @@ background-color: #23211A;
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>1290</x>
       <y>80</y>
       <width>111</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>按的到嗎</string>
+     <string>按的到嗎?</string>
     </property>
    </widget>
    <widget class="QPushButton" name="upload">
@@ -569,6 +569,16 @@ background-color: #23211A;
      </item>
     </layout>
    </widget>
+   <widget class="QGraphicsView" name="graphicsView_bird">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>180</y>
+      <width>371</width>
+      <height>591</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>layoutWidget</zorder>
    <zorder>stackedWidget</zorder>
    <zorder>pushButton</zorder>
@@ -581,6 +591,7 @@ background-color: #23211A;
    <zorder>pushButton_3</zorder>
    <zorder>label_upload_model</zorder>
    <zorder>graphicsView_logo</zorder>
+   <zorder>graphicsView_bird</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

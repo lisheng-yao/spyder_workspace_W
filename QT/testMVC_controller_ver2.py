@@ -83,9 +83,10 @@ class TestMVC_controller(QMainWindow):
     # 
     def on_combobox_changed(self, index):
         self.view.stackedWidget.setCurrentIndex(index)
+        
     
         
-    #    
+    # 圖片處理
     def set_logo(self):
         print('logo已設定')
         scene = QtWidgets.QGraphicsScene()
@@ -93,12 +94,23 @@ class TestMVC_controller(QMainWindow):
         img = img.scaled(400,80)
         scene.addPixmap(img)
         self.view.graphicsView_logo.setScene(scene)
-
-    # 從這裡開始
+        
+        
+        print('準備起飛')
+        scene2 = QtWidgets.QGraphicsScene()
+        img2 = QtGui.QPixmap(r'C:\Users\w\spyder_workspace_W\QT\logo\bird.jpg')
+        img2 = img2.scaled(360,480)
+        scene2.addPixmap(img2)
+        self.view.graphicsView_bird.setScene(scene2)
+        
+        
+    
+    # kmeans處理
     def plot_click(self):
         
         file_path = self.file_path
-        print(f'安安兒 {file_path}')
+        data = pd.read_csv(file_path)
+        # print(f'安安兒 {file_path}')
         
         # kmeans 輸入參數
         lineEdit_n_clusters = self.view.lineEdit_n_clusters.text()
@@ -113,27 +125,38 @@ class TestMVC_controller(QMainWindow):
         threshold = self.view.lineEdit_threshold.text()
         
         
+        grouped_data = [data[i:i + int(data_group)] for i in range(0, data.shape[0], int(data_group))]
+        
+        
+        
         try:
             n_clusters = int(lineEdit_n_clusters)
         except ValueError:
             print("請輸入正整數")
             return
 
-        model = KMeans(n_clusters=n_clusters,
-                   init=comboBox_init,
-                   n_init='auto',
-                   max_iter=spinBox_max_iter,
-                   tol=float(1e-4),
-                   algorithm=comboBox_metric,
-                   random_state=spinBox_random_seed)
+        for i, group in enumerate(grouped_data):
+            X = group[['Voltage', 'Temperature']]
+            
+            kmeans = KMeans(n_clusters=n_clusters,
+                       init=comboBox_init,
+                       n_init='auto',
+                       max_iter=spinBox_max_iter,
+                       tol=float(1e-4),
+                       algorithm=comboBox_metric,
+                       random_state=spinBox_random_seed)
         
-        # model.fit(df)
-        
-        # fig ,ax = plt.subplots()
-        # ax.scatter(df['petal length (cm)'],df['petal width (cm)'], c = model.labels_) #根據花瓣的長度、寬度，來畫出之間關係。c=model.labels_:代表資料點的顏色，由模型分類出來的結果，來進行分類和定義。 
-        # ax.set_xlabel('petal length')
-        # ax.set_ylabel('petal width')
-        # # ax.show()
+            kmeans.fit(X)
+            
+            plt.figure(figsize=(10, 6),dpi=100)
+            plt.scatter(X['Voltage'], X['Temperature'], c=kmeans.labels_, cmap='viridis')
+            plt.title(f'K-Means Clustering of Voltage and Temperature - Group {i+1}')
+            plt.xlabel('Voltage')
+            plt.ylabel('Temperature')
+            plt.xlim(3280, 3375)
+            plt.ylim(440, 520)
+            
+            plt.show()
         
         # self.plot_to_graphics_view(fig)
     
