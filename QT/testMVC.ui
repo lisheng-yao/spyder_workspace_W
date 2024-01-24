@@ -457,7 +457,7 @@ background-color: #23211A;
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_data"/>
+        <widget class="QLineEdit" name="lineEdit_data_group"/>
        </item>
        <item>
         <widget class="QLabel" name="label_threshold">

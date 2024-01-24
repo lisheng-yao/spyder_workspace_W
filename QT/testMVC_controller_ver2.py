@@ -30,6 +30,7 @@ class TestMVC_controller(QMainWindow):
         self.view.pushButton_plot.clicked.connect(self.plot_click)
         self.plot_layout = QtWidgets.QVBoxLayout(self.view.graphicsView_plot)
         self.click_count = 0
+        self.file_path = None
         
     #    
     def button_click(self):
@@ -53,7 +54,7 @@ class TestMVC_controller(QMainWindow):
             print(f"已選擇檔案：{file_path}")
             self.view.label.setText(f"已選擇檔案：{file_path}")
             self.data_preview(file_path)
-    
+            self.file_path = file_path
     # 
     def data_preview(self,file_path):
         data = pd.read_csv(file_path)
@@ -96,17 +97,20 @@ class TestMVC_controller(QMainWindow):
     # 從這裡開始
     def plot_click(self):
         
-
+        file_path = self.file_path
+        print(f'安安兒 {file_path}')
         
-        
+        # kmeans 輸入參數
         lineEdit_n_clusters = self.view.lineEdit_n_clusters.text()
         comboBox_init = self.view.comboBox_init.currentText()
         spinBox_max_iter = self.view.spinBox_max_iter.value()
         spinBox_tol = self.view.spinBox_tol.value()
         comboBox_metric = self.view.comboBox_metric.currentText()
         spinBox_random_seed = self.view.spinBox_random_seed.value()
-        threshold = self.veiw.lineEdit_threshold.text()
-        data = self.veiw.line
+        
+        # 分群條件輸入參數
+        data_group = self.view.lineEdit_data_group.text()
+        threshold = self.view.lineEdit_threshold.text()
         
         
         try:
@@ -123,15 +127,15 @@ class TestMVC_controller(QMainWindow):
                    algorithm=comboBox_metric,
                    random_state=spinBox_random_seed)
         
-        model.fit(df)
+        # model.fit(df)
         
-        fig ,ax = plt.subplots()
-        ax.scatter(df['petal length (cm)'],df['petal width (cm)'], c = model.labels_) #根據花瓣的長度、寬度，來畫出之間關係。c=model.labels_:代表資料點的顏色，由模型分類出來的結果，來進行分類和定義。 
-        ax.set_xlabel('petal length')
-        ax.set_ylabel('petal width')
-        # ax.show()
+        # fig ,ax = plt.subplots()
+        # ax.scatter(df['petal length (cm)'],df['petal width (cm)'], c = model.labels_) #根據花瓣的長度、寬度，來畫出之間關係。c=model.labels_:代表資料點的顏色，由模型分類出來的結果，來進行分類和定義。 
+        # ax.set_xlabel('petal length')
+        # ax.set_ylabel('petal width')
+        # # ax.show()
         
-        self.plot_to_graphics_view(fig)
+        # self.plot_to_graphics_view(fig)
     
     #
     def plot_to_graphics_view(self, figure):
