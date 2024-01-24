@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1049, 796)
+        MainWindow.resize(1085, 892)
         MainWindow.setToolTip("")
         MainWindow.setStyleSheet("QPushButton \n"
 "{\n"
@@ -48,11 +48,6 @@ class Ui_MainWindow(object):
 "    font-size: 10px; /* 字體大小 */\n"
 "}\n"
 "\n"
-"QTableWidget QHeaderView::section {\n"
-"    background-color: #23211A; /* 表頭的背景色，也同時影響左上角的小方塊 */\n"
-"    color: white; /* 表頭的字體顏色 */\n"
-"    gridline-color: white; /* 格線顏色 */\n"
-"}\n"
 "\n"
 "\n"
 "QFileDialog{\n"
@@ -138,7 +133,7 @@ class Ui_MainWindow(object):
         self.label_upload_model.setSizePolicy(sizePolicy)
         self.label_upload_model.setObjectName("label_upload_model")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
-        self.stackedWidget.setGeometry(QtCore.QRect(10, 370, 441, 421))
+        self.stackedWidget.setGeometry(QtCore.QRect(10, 370, 441, 481))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -154,7 +149,7 @@ class Ui_MainWindow(object):
         self.page_KMeans = QtWidgets.QWidget()
         self.page_KMeans.setObjectName("page_KMeans")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.page_KMeans)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 60, 371, 333))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 60, 371, 381))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
@@ -227,6 +222,12 @@ class Ui_MainWindow(object):
         self.spinBox_random_seed.setProperty("value", 100)
         self.spinBox_random_seed.setObjectName("spinBox_random_seed")
         self.verticalLayout.addWidget(self.spinBox_random_seed)
+        self.label_threshold = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_threshold.setObjectName("label_threshold")
+        self.verticalLayout.addWidget(self.label_threshold)
+        self.lineEdit_threshold = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.lineEdit_threshold.setObjectName("lineEdit_threshold")
+        self.verticalLayout.addWidget(self.lineEdit_threshold)
         self.pushButton_plot = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_plot.setObjectName("pushButton_plot")
         self.verticalLayout.addWidget(self.pushButton_plot)
@@ -300,7 +301,7 @@ class Ui_MainWindow(object):
         self.label_upload_model.setText(_translate("MainWindow", "未匯入模型 (選擇性)"))
         self.label_n_clusters.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">簇的數量 (n_clusters):</span></p><ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">描述：指定要將數據分割成的簇的數量。</li><li style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">推薦：使用者可能需要根據數據的性質和業務需求選擇適當的簇數量。可以嘗試不同的簇數量，然後使用一些評估指標（如輪廓系數、肘部法則等）來選擇最佳的簇數量。</li></ul></body></html>"))
         self.label_n_clusters.setText(_translate("MainWindow", "分群數 (n_clusters)"))
-        self.lineEdit_n_clusters.setPlaceholderText(_translate("MainWindow", "auto"))
+        self.lineEdit_n_clusters.setPlaceholderText(_translate("MainWindow", "輸入正整數"))
         self.label_init.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">初始中心點的選擇方法 (init):</span></p><ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">描述：指定初始簇中心點的選擇方法。</li><li style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">推薦：常用的選擇方法有&quot;k-means++&quot;，它會智能地選擇初始中心點，有助於加速算法的收斂</li></ul></body></html>"))
         self.label_init.setText(_translate("MainWindow", "初始中心點的選擇方法 (init)"))
         self.comboBox_init.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">初始中心點的選擇方法 (init):</span></p><ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">描述：指定初始簇中心點的選擇方法。</li><li style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">推薦：常用的選擇方法有&quot;k-means++&quot;，它會智能地選擇初始中心點，有助於加速算法的收斂</li></ul></body></html>"))
@@ -322,6 +323,9 @@ class Ui_MainWindow(object):
         self.label_random_seed.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">隨機數種子 (random_state):</span></p><ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">描述：指定隨機數生成器的種子，以確保每次運行都得到相同的結果。</li><li style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">推薦：在調試和複現實驗結果時使用，可以使結果更可控。</li></ul></body></html>"))
         self.label_random_seed.setText(_translate("MainWindow", "隨機數種子 (random_seed)"))
         self.spinBox_random_seed.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">隨機數種子 (random_state):</span></p><ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">描述：指定隨機數生成器的種子，以確保每次運行都得到相同的結果。</li><li style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">推薦：在調試和複現實驗結果時使用，可以使結果更可控。</li></ul></body></html>"))
+        self.label_threshold.setToolTip(_translate("MainWindow", "設定閾值距離，超過閾值的點視為離群值"))
+        self.label_threshold.setText(_translate("MainWindow", "設定離散域值(threshold)"))
+        self.lineEdit_threshold.setToolTip(_translate("MainWindow", "設定閾值距離，超過閾值的點視為離群值"))
         self.pushButton_plot.setText(_translate("MainWindow", "開始繪圖"))
         self.label_4.setText(_translate("MainWindow", "尚未支援該功能"))
         self.label_5.setText(_translate("MainWindow", "尚未支援該功能"))

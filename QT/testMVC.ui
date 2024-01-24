@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1049</width>
-    <height>796</height>
+    <width>1085</width>
+    <height>892</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -234,7 +234,7 @@ background-color: #23211A;
       <x>10</x>
       <y>370</y>
       <width>441</width>
-      <height>421</height>
+      <height>481</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -271,7 +271,7 @@ background-color: #23211A;
         <x>20</x>
         <y>60</y>
         <width>371</width>
-        <height>333</height>
+        <height>381</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -291,7 +291,7 @@ background-color: #23211A;
        <item>
         <widget class="QLineEdit" name="lineEdit_n_clusters">
          <property name="placeholderText">
-          <string>auto</string>
+          <string>輸入正整數</string>
          </property>
         </widget>
        </item>
@@ -446,6 +446,23 @@ background-color: #23211A;
          </property>
          <property name="value">
           <number>100</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_threshold">
+         <property name="toolTip">
+          <string>設定閾值距離，超過閾值的點視為離群值</string>
+         </property>
+         <property name="text">
+          <string>設定離散域值(threshold)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_threshold">
+         <property name="toolTip">
+          <string>設定閾值距離，超過閾值的點視為離群值</string>
          </property>
         </widget>
        </item>
