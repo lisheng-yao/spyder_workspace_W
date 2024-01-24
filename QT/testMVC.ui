@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1085</width>
-    <height>892</height>
+    <width>1110</width>
+    <height>948</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -234,7 +234,7 @@ background-color: #23211A;
       <x>10</x>
       <y>370</y>
       <width>441</width>
-      <height>481</height>
+      <height>521</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -271,7 +271,7 @@ background-color: #23211A;
         <x>20</x>
         <y>60</y>
         <width>371</width>
-        <height>381</height>
+        <height>431</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -450,6 +450,16 @@ background-color: #23211A;
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="label_data_group">
+         <property name="text">
+          <string>單圖表資料數量</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_data"/>
+       </item>
+       <item>
         <widget class="QLabel" name="label_threshold">
          <property name="toolTip">
           <string>設定閾值距離，超過閾值的點視為離群值</string>
@@ -530,8 +540,8 @@ background-color: #23211A;
    <widget class="QGraphicsView" name="graphicsView_logo">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>30</y>
+      <x>550</x>
+      <y>40</y>
       <width>411</width>
       <height>101</height>
      </rect>
@@ -540,10 +550,10 @@ background-color: #23211A;
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>160</y>
-      <width>541</width>
-      <height>561</height>
+      <x>470</x>
+      <y>180</y>
+      <width>601</width>
+      <height>641</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">

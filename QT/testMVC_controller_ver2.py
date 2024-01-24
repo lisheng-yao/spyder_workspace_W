@@ -98,8 +98,6 @@ class TestMVC_controller(QMainWindow):
         
 
         
-        RawData = load_iris()
-        df = pd.DataFrame(RawData['data'],columns= RawData['feature_names'])
         
         lineEdit_n_clusters = self.view.lineEdit_n_clusters.text()
         comboBox_init = self.view.comboBox_init.currentText()
@@ -107,6 +105,8 @@ class TestMVC_controller(QMainWindow):
         spinBox_tol = self.view.spinBox_tol.value()
         comboBox_metric = self.view.comboBox_metric.currentText()
         spinBox_random_seed = self.view.spinBox_random_seed.value()
+        threshold = self.veiw.lineEdit_threshold.text()
+        data = self.veiw.line
         
         
         try:

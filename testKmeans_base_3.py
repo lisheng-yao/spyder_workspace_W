@@ -33,5 +33,5 @@ for i, group in enumerate(grouped_data):
     plt.xlim(3280, 3375)
     plt.ylim(440, 520)
     
-    plt.colorbar(label='Cluster Label')
+    # plt.colorbar(label='Cluster Label')
     plt.show()
