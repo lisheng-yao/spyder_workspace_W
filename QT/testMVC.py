@@ -292,6 +292,7 @@ class Ui_MainWindow(object):
         self.pushButton_next.setObjectName("pushButton_next")
         self.horizontalLayout.addWidget(self.pushButton_next)
         self.verticalLayout_3.addLayout(self.horizontalLayout)
+        self.stackedWidget_layout.raise_()
         self.layoutWidget.raise_()
         self.stackedWidget.raise_()
         self.pushButton.raise_()

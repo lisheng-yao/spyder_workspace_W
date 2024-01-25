@@ -27,6 +27,11 @@ class TestMVC_controller(QMainWindow):
         self.view.pushButton.clicked.connect(self.button_click)
         self.view.upload.clicked.connect(self.upload_click)
         self.view.comboBox.currentIndexChanged.connect(self.on_combobox_changed)
+        self.view.pushButton_next.clicked.connect(self.show_next_plot)
+        self.view.pushButton_last.clicked.connect(self.show_last_plot)
+        
+        
+        
         self.set_logo()
         self.view.pushButton_plot.clicked.connect(self.plot_click)
         self.plot_layout = QtWidgets.QVBoxLayout(self.view.graphicsView_plot)
@@ -173,6 +178,9 @@ class TestMVC_controller(QMainWindow):
             print("請輸入正整數")
             return
 
+        # 用於存儲所有生成的 figures
+        list_of_figures = []    
+    
         for i, group in enumerate(grouped_data):
             X = group[['Voltage', 'Temperature']]
             # print(X)
@@ -206,17 +214,24 @@ class TestMVC_controller(QMainWindow):
             for index, row in outliers.iterrows():
                 plt.annotate(index, (row['Voltage'], row['Temperature']), textcoords="offset points", xytext=(0,5), ha='center', fontsize=7)
             
-
-            plt.title('K-means Clustering with Outliers')
+            title = f'K-means Clustering with Outliers - Group {i + 1}'
+            plt.title(title)
             plt.xlabel('Voltage')
             plt.ylabel('Temperature')
             plt.xlim(3280, 3360)
             plt.ylim(440, 510)
             plt.legend()
             
+            
             plt.show()
+            
+            list_of_figures.append(fig)    
         
             self.plot_to_graphics_view(fig)
+            
+        self.update_stacked_widget(list_of_figures) ######################
+        
+        
     
     #
     def plot_to_graphics_view(self, figure):
@@ -238,9 +253,55 @@ class TestMVC_controller(QMainWindow):
         
 
 
-    #
+    # 動態添加一個新的QWidget到QStackedWidget
     def add_page_to_stacked_widget(self, figure):
-        
+        widget = QtWidgets.QWidget()
+        layout = QtWidgets.QVBoxLayout(widget)
+        layout.addWidget(FigureCanvas(figure))
+        self.view.stackedWidget_layout.addWidget(widget)
+    
+    
+    # 新繪圖之前，清除所有已經存在stackedWidget的QWidget
+    # def clear_stacked_widget(self):
+    #     for i in range(self.view.stackedWidget_layout.count()):
+    #         widget = self.view.stackedWidget_layout.widget(i)
+    #         if widget is not None:
+    #             widget.setParent(None)
+    #             widget.deleteLater()
+
+    #     self.view.stackedWidget_layout.removeWidget(widget) 
+
+
+    #
+    def update_stacked_widget(self, list_of_figures):
+        # self.clear_stacked_widget()
+        for figure in list_of_figures:
+            self.add_page_to_stacked_widget(figure)
+    
+        self.view.stackedWidget_layout.setCurrentIndex(0)  # 顯示第一張圖片
+
+
+
+    #
+    def show_last_plot(self):
+        current_index = self.view.stackedWidget_layout.currentIndex()
+        new_index = (current_index - 1) % self.view.stackedWidget_layout.count()
+        self.view.stackedWidget_layout.setCurrentIndex(new_index)
+
+
+    #
+    def show_next_plot(self):
+        current_index = self.view.stackedWidget_layout.currentIndex()
+        new_index = (current_index + 1) % self.view.stackedWidget_layout.count()
+        print(f'current_index = {current_index} , new_index = {new_index}')
+        self.view.stackedWidget_layout.setCurrentIndex(new_index)
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
