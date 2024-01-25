@@ -12,6 +12,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 import random
 import os
 
@@ -57,7 +58,7 @@ class TestMVC_controller(QMainWindow):
             self.file_path = file_path
     # 
     def data_preview(self,file_path):
-        data = pd.read_csv(file_path)
+        data = pd.read_csv(file_path , encoding = 'utf-8')
         # print(data)
         self.view.tableWidget.setColumnCount(len(data.columns))
         self.view.tableWidget.setRowCount(min(100, len(data)))  # 限制顯示前100筆資料
@@ -116,7 +117,7 @@ class TestMVC_controller(QMainWindow):
         
         
         
-   
+    # 圖片處理2
     def set_logo(self):
         self.load_and_set_image("logo/logo.png", self.view.graphicsView_logo, (400, 80), 'logo已設定')
         self.load_and_set_image("logo/bird.jpg", self.view.graphicsView_bird, (360, 480), '準備起飛')
@@ -124,13 +125,12 @@ class TestMVC_controller(QMainWindow):
     def load_and_set_image(self, relative_path, graphics_view, size, log_message):
         scene = QtWidgets.QGraphicsScene()
         
-        # 取得執行路徑
+        # 取得執行路徑 dirname取得目錄
         script_dir = os.path.dirname(os.path.realpath(__file__))
-        
         img_path = os.path.join(script_dir, relative_path)
         img = QtGui.QPixmap(img_path)
         
-        # 统一缩放操作
+        # 统一缩放
         img = img.scaled(*size)
         
         scene.addPixmap(img)
@@ -144,9 +144,9 @@ class TestMVC_controller(QMainWindow):
         
         file_path = self.file_path
         data = pd.read_csv(file_path)
-        # print(f'安安兒 {file_path}')
+        # print(f'安安測試路徑 {file_path}')
         
-        # kmeans 輸入參數
+        # kmeans GUI input
         lineEdit_n_clusters = self.view.lineEdit_n_clusters.text()
         comboBox_init = self.view.comboBox_init.currentText()
         spinBox_max_iter = self.view.spinBox_max_iter.value()
@@ -154,12 +154,16 @@ class TestMVC_controller(QMainWindow):
         comboBox_metric = self.view.comboBox_metric.currentText()
         spinBox_random_seed = self.view.spinBox_random_seed.value()
         
-        # 分群條件輸入參數
+        # 分群條件 GUI input
         data_group = self.view.lineEdit_data_group.text()
-        threshold = self.view.lineEdit_threshold.text()
+        threshold_input = self.view.lineEdit_threshold.text()
         
         
-        grouped_data = [data[i:i + int(data_group)] for i in range(0, data.shape[0], int(data_group))]
+        if data_group and data_group.isdigit():
+            grouped_data = [data[i:i + int(data_group)] for i in range(0, data.shape[0], int(data_group))]
+        else:
+            print("請輸入有效分群")
+            return
         
         
         
@@ -171,6 +175,7 @@ class TestMVC_controller(QMainWindow):
 
         for i, group in enumerate(grouped_data):
             X = group[['Voltage', 'Temperature']]
+            # print(X)
             
             kmeans = KMeans(n_clusters=n_clusters,
                        init=comboBox_init,
@@ -182,17 +187,36 @@ class TestMVC_controller(QMainWindow):
         
             kmeans.fit(X)
             
-            plt.figure(figsize=(10, 6),dpi=100)
-            plt.scatter(X['Voltage'], X['Temperature'], c=kmeans.labels_, cmap='viridis')
-            plt.title(f'K-Means Clustering of Voltage and Temperature - Group {i+1}')
+            
+            # 計算每個點到所屬中心的距離
+            distances = kmeans.transform(X)
+            # 取得每個點到其所屬群集中心的最小距離
+            min_distances = np.min(distances, axis=1)
+            # 設定閾值，超過閾值的點視為離群值
+            outliers = X[min_distances > int(threshold_input)]
+            print(outliers)
+            
+            
+
+            fig ,ax = plt.subplots()
+            ax.scatter(X['Voltage'], X['Temperature'], c=kmeans.labels_, cmap='viridis', edgecolor='k')
+            ax.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], c='red', marker='X', s=200, label='Centroids')
+            ax.scatter(outliers['Voltage'], outliers['Temperature'], c='orange', marker='o', s=100, label='Outliers')
+            
+            for index, row in outliers.iterrows():
+                plt.annotate(index, (row['Voltage'], row['Temperature']), textcoords="offset points", xytext=(0,5), ha='center', fontsize=7)
+            
+
+            plt.title('K-means Clustering with Outliers')
             plt.xlabel('Voltage')
             plt.ylabel('Temperature')
-            plt.xlim(3280, 3375)
-            plt.ylim(440, 520)
+            plt.xlim(3280, 3360)
+            plt.ylim(440, 510)
+            plt.legend()
             
             plt.show()
         
-        # self.plot_to_graphics_view(fig)
+        self.plot_to_graphics_view(fig)
     
     #
     def plot_to_graphics_view(self, figure):
@@ -212,8 +236,6 @@ class TestMVC_controller(QMainWindow):
             canvas.setParent(self.view.graphicsView_plot)
             self.plot_layout.addWidget(canvas)
         
-
-
 
 
 
