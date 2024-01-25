@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>2125</width>
-    <height>895</height>
+    <width>1599</width>
+    <height>933</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -87,7 +87,7 @@ background-color: #23211A;
 
 }
 
-#graphicsView_DBSCAN ,  #graphicsView_NCC , #stackedWidget_layout, #graphicsView_bird
+#graphicsView_DBSCAN ,  #graphicsView_NCC
 
 {
 
@@ -579,43 +579,6 @@ background-color: #23211A;
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>1550</x>
-      <y>180</y>
-      <width>561</width>
-      <height>611</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <widget class="QStackedWidget" name="stackedWidget_layout">
-       <property name="currentIndex">
-        <number>-1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QPushButton" name="pushButton_last">
-         <property name="text">
-          <string>上一張</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_next">
-         <property name="text">
-          <string>下一張</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
    <zorder>layoutWidget</zorder>
    <zorder>stackedWidget</zorder>
    <zorder>pushButton</zorder>
@@ -629,7 +592,6 @@ background-color: #23211A;
    <zorder>label_upload_model</zorder>
    <zorder>graphicsView_logo</zorder>
    <zorder>graphicsView_bird</zorder>
-   <zorder>verticalLayoutWidget_2</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -216,7 +216,7 @@ class TestMVC_controller(QMainWindow):
             
             plt.show()
         
-        self.plot_to_graphics_view(fig)
+            self.plot_to_graphics_view(fig)
     
     #
     def plot_to_graphics_view(self, figure):
@@ -238,7 +238,9 @@ class TestMVC_controller(QMainWindow):
         
 
 
-
+    #
+    def add_page_to_stacked_widget(self, figure):
+        
 
 
 if __name__ == '__main__':

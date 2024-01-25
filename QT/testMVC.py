@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1599, 933)
+        MainWindow.resize(2125, 895)
         MainWindow.setToolTip("")
         MainWindow.setStyleSheet("QPushButton \n"
 "{\n"
@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "\n"
-"#graphicsView_DBSCAN ,  #graphicsView_NCC\n"
+"#graphicsView_DBSCAN ,  #graphicsView_NCC , #stackedWidget_layout, #graphicsView_bird\n"
 "\n"
 "{\n"
 "\n"
@@ -274,6 +274,24 @@ class Ui_MainWindow(object):
         self.graphicsView_bird = QtWidgets.QGraphicsView(self.centralwidget)
         self.graphicsView_bird.setGeometry(QtCore.QRect(1160, 180, 371, 591))
         self.graphicsView_bird.setObjectName("graphicsView_bird")
+        self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(1550, 180, 561, 611))
+        self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.stackedWidget_layout = QtWidgets.QStackedWidget(self.verticalLayoutWidget_2)
+        self.stackedWidget_layout.setObjectName("stackedWidget_layout")
+        self.verticalLayout_3.addWidget(self.stackedWidget_layout)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.pushButton_last = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.pushButton_last.setObjectName("pushButton_last")
+        self.horizontalLayout.addWidget(self.pushButton_last)
+        self.pushButton_next = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.pushButton_next.setObjectName("pushButton_next")
+        self.horizontalLayout.addWidget(self.pushButton_next)
+        self.verticalLayout_3.addLayout(self.horizontalLayout)
         self.layoutWidget.raise_()
         self.stackedWidget.raise_()
         self.pushButton.raise_()
@@ -287,6 +305,7 @@ class Ui_MainWindow(object):
         self.label_upload_model.raise_()
         self.graphicsView_logo.raise_()
         self.graphicsView_bird.raise_()
+        self.verticalLayoutWidget_2.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -294,6 +313,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget_layout.setCurrentIndex(-1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -341,6 +361,8 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "尚未支援該功能"))
         self.label_5.setText(_translate("MainWindow", "尚未支援該功能"))
         self.pushButton_model_export.setText(_translate("MainWindow", "匯出模型"))
+        self.pushButton_last.setText(_translate("MainWindow", "上一張"))
+        self.pushButton_next.setText(_translate("MainWindow", "下一張"))
 
 
 if __name__ == "__main__":
