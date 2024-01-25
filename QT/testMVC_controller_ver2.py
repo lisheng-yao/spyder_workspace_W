@@ -214,8 +214,8 @@ class TestMVC_controller(QMainWindow):
             for index, row in outliers.iterrows():
                 plt.annotate(index, (row['Voltage'], row['Temperature']), textcoords="offset points", xytext=(0,5), ha='center', fontsize=7)
             
-            title = f'K-means Clustering with Outliers - Group {i + 1}'
-            plt.title(title)
+
+            plt.title(f'K-means Clustering with Outliers - Group {i + 1}')
             plt.xlabel('Voltage')
             plt.ylabel('Temperature')
             plt.xlim(3280, 3360)
@@ -228,7 +228,8 @@ class TestMVC_controller(QMainWindow):
             list_of_figures.append(fig)    
         
             self.plot_to_graphics_view(fig)
-            
+        
+        self.clear_stacked_widget()    
         self.update_stacked_widget(list_of_figures) ######################
         
         
@@ -262,19 +263,21 @@ class TestMVC_controller(QMainWindow):
     
     
     # 新繪圖之前，清除所有已經存在stackedWidget的QWidget
-    # def clear_stacked_widget(self):
-    #     for i in range(self.view.stackedWidget_layout.count()):
-    #         widget = self.view.stackedWidget_layout.widget(i)
-    #         if widget is not None:
-    #             widget.setParent(None)
-    #             widget.deleteLater()
-
-    #     self.view.stackedWidget_layout.removeWidget(widget) 
-
+    def clear_stacked_widget(self):
+        widget = None  # 在函數開始時設置預設值
+        if self.view.stackedWidget_layout.count() > 0:
+            for i in range(self.view.stackedWidget_layout.count()):
+                widget = self.view.stackedWidget_layout.widget(i)
+                
+                print(f'開始清除 {i}')
+                # if widget is not None:
+                widget.setParent(None)
+                widget.deleteLater()
+                self.view.stackedWidget_layout.removeWidget(widget) 
+        pass    
 
     #
     def update_stacked_widget(self, list_of_figures):
-        # self.clear_stacked_widget()
         for figure in list_of_figures:
             self.add_page_to_stacked_widget(figure)
     
@@ -282,14 +285,14 @@ class TestMVC_controller(QMainWindow):
 
 
 
-    #
+    # 上一張
     def show_last_plot(self):
         current_index = self.view.stackedWidget_layout.currentIndex()
         new_index = (current_index - 1) % self.view.stackedWidget_layout.count()
         self.view.stackedWidget_layout.setCurrentIndex(new_index)
 
 
-    #
+    # 下一張
     def show_next_plot(self):
         current_index = self.view.stackedWidget_layout.currentIndex()
         new_index = (current_index + 1) % self.view.stackedWidget_layout.count()
