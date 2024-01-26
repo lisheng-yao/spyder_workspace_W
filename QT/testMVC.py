@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(2125, 895)
+        MainWindow.resize(1435, 895)
         MainWindow.setToolTip("")
         MainWindow.setStyleSheet("QPushButton \n"
 "{\n"
@@ -96,7 +96,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(1290, 80, 111, 41))
+        self.pushButton.setGeometry(QtCore.QRect(960, 830, 111, 41))
         self.pushButton.setObjectName("pushButton")
         self.upload = QtWidgets.QPushButton(self.centralwidget)
         self.upload.setGeometry(QtCore.QRect(30, 60, 93, 28))
@@ -272,10 +272,10 @@ class Ui_MainWindow(object):
         self.pushButton_model_export.setObjectName("pushButton_model_export")
         self.verticalLayout_2.addWidget(self.pushButton_model_export)
         self.graphicsView_bird = QtWidgets.QGraphicsView(self.centralwidget)
-        self.graphicsView_bird.setGeometry(QtCore.QRect(1160, 180, 371, 591))
+        self.graphicsView_bird.setGeometry(QtCore.QRect(1090, 10, 311, 511))
         self.graphicsView_bird.setObjectName("graphicsView_bird")
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(1550, 180, 561, 611))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(1090, 530, 311, 331))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)

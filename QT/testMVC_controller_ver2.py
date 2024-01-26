@@ -125,7 +125,7 @@ class TestMVC_controller(QMainWindow):
     # 圖片處理2
     def set_logo(self):
         self.load_and_set_image("logo/logo.png", self.view.graphicsView_logo, (400, 80), 'logo已設定')
-        self.load_and_set_image("logo/bird.jpg", self.view.graphicsView_bird, (360, 480), '準備起飛')
+        self.load_and_set_image("logo/bird.gif", self.view.graphicsView_bird, (360, 480), '準備起飛')
 
     def load_and_set_image(self, relative_path, graphics_view, size, log_message):
         scene = QtWidgets.QGraphicsScene()
