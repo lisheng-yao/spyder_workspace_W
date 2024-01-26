@@ -229,7 +229,7 @@ class TestMVC_controller(QMainWindow):
         
             self.plot_to_graphics_view(fig)
         
-        self.clear_stacked_widget()    
+           
         self.update_stacked_widget(list_of_figures) ######################
         
         
@@ -264,20 +264,26 @@ class TestMVC_controller(QMainWindow):
     
     # 新繪圖之前，清除所有已經存在stackedWidget的QWidget
     def clear_stacked_widget(self):
-        widget = None  # 在函數開始時設置預設值
+        # widget = None  # 在函數開始時設置預設值
         if self.view.stackedWidget_layout.count() > 0:
-            for i in range(self.view.stackedWidget_layout.count()):
-                widget = self.view.stackedWidget_layout.widget(i)
-                
-                print(f'開始清除 {i}')
-                # if widget is not None:
-                widget.setParent(None)
+            for i in reversed(range(self.view.stackedWidget.count())):
+                widget = self.view.stackedWidget.widget(i)
+                self.view.stackedWidget.removeWidget(widget)
                 widget.deleteLater()
-                self.view.stackedWidget_layout.removeWidget(widget) 
+            
+            # for i in range(self.view.stackedWidget_layout.count()):
+            #     widget = self.view.stackedWidget_layout.widget(i)
+                
+            #     print(f'開始清除 {i}')
+            #     # if widget is not None:
+            #     widget.setParent(None)
+            #     widget.deleteLater()
+            #     self.view.stackedWidget_layout.removeWidget(widget) 
         pass    
 
     #
     def update_stacked_widget(self, list_of_figures):
+        self.clear_stacked_widget() 
         for figure in list_of_figures:
             self.add_page_to_stacked_widget(figure)
     

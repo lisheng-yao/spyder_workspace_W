@@ -291,7 +291,7 @@ background-color: #23211A;
        <item>
         <widget class="QLineEdit" name="lineEdit_n_clusters">
          <property name="placeholderText">
-          <string>輸入正整數</string>
+          <string>1</string>
          </property>
         </widget>
        </item>
@@ -457,7 +457,11 @@ background-color: #23211A;
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_data_group"/>
+        <widget class="QLineEdit" name="lineEdit_data_group">
+         <property name="placeholderText">
+          <string>256</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_threshold">
@@ -473,6 +477,9 @@ background-color: #23211A;
         <widget class="QLineEdit" name="lineEdit_threshold">
          <property name="toolTip">
           <string>設定閾值距離，超過閾值的點視為離群值</string>
+         </property>
+         <property name="placeholderText">
+          <string>20</string>
          </property>
         </widget>
        </item>
