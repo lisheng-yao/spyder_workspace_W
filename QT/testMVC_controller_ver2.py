@@ -125,7 +125,7 @@ class TestMVC_controller(QMainWindow):
     # 圖片處理2
     def set_logo(self):
         self.load_and_set_image("logo/logo.png", self.view.graphicsView_logo, (400, 80), 'logo已設定')
-        self.load_and_set_image("logo/bird.gif", self.view.graphicsView_bird, (360, 480), '準備起飛')
+        self.load_and_set_image("logo/bird.jpg", self.view.graphicsView_bird, (360, 480), '準備起飛')
 
     def load_and_set_image(self, relative_path, graphics_view, size, log_message):
         scene = QtWidgets.QGraphicsScene()
@@ -141,6 +141,8 @@ class TestMVC_controller(QMainWindow):
         scene.addPixmap(img)
         graphics_view.setScene(scene)
         print(log_message)
+        
+    
         
         
     
@@ -266,9 +268,9 @@ class TestMVC_controller(QMainWindow):
     def clear_stacked_widget(self):
         # widget = None  # 在函數開始時設置預設值
         if self.view.stackedWidget_layout.count() > 0:
-            for i in reversed(range(self.view.stackedWidget.count())):
-                widget = self.view.stackedWidget.widget(i)
-                self.view.stackedWidget.removeWidget(widget)
+            for i in reversed(range(self.view.stackedWidget_layout.count())):
+                widget = self.view.stackedWidget_layout.widget(i)
+                self.view.stackedWidget_layout.removeWidget(widget)
                 widget.deleteLater()
             
             # for i in range(self.view.stackedWidget_layout.count()):
@@ -281,7 +283,7 @@ class TestMVC_controller(QMainWindow):
             #     self.view.stackedWidget_layout.removeWidget(widget) 
         pass    
 
-    #
+    # 安裝介面
     def update_stacked_widget(self, list_of_figures):
         self.clear_stacked_widget() 
         for figure in list_of_figures:
@@ -304,7 +306,6 @@ class TestMVC_controller(QMainWindow):
         new_index = (current_index + 1) % self.view.stackedWidget_layout.count()
         print(f'current_index = {current_index} , new_index = {new_index}')
         self.view.stackedWidget_layout.setCurrentIndex(new_index)
-
 
 
 
