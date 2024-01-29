@@ -93,14 +93,23 @@ background-color: #23211A;
 
 background-color: #23211A;
 
+}
+
+
+#graphicsView_plot
+{
+
+background-color: #4F4A46;
+border:none;
+
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>960</x>
-      <y>830</y>
+      <x>1190</x>
+      <y>800</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -557,22 +566,15 @@ background-color: #23211A;
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>180</y>
-      <width>601</width>
-      <height>641</height>
+      <x>1180</x>
+      <y>570</y>
+      <width>111</width>
+      <height>111</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QGraphicsView" name="graphicsView_plot"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_model_export">
-       <property name="text">
-        <string>匯出模型</string>
-       </property>
-      </widget>
      </item>
     </layout>
    </widget>
@@ -589,10 +591,10 @@ background-color: #23211A;
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>1090</x>
-      <y>530</y>
-      <width>321</width>
-      <height>331</height>
+      <x>480</x>
+      <y>170</y>
+      <width>581</width>
+      <height>661</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -621,9 +623,17 @@ background-color: #23211A;
        </item>
       </layout>
      </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_model_export">
+       <property name="text">
+        <string>匯出模型</string>
+       </property>
+      </widget>
+     </item>
     </layout>
     <zorder>horizontalLayoutWidget</zorder>
     <zorder>stackedWidget_layout</zorder>
+    <zorder>pushButton_model_export</zorder>
    </widget>
    <zorder>layoutWidget</zorder>
    <zorder>stackedWidget</zorder>

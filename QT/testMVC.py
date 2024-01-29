@@ -92,11 +92,20 @@ class Ui_MainWindow(object):
 "\n"
 "background-color: #23211A;\n"
 "\n"
+"}\n"
+"\n"
+"\n"
+"#graphicsView_plot\n"
+"{\n"
+"\n"
+"background-color: #4F4A46;\n"
+"border:none;\n"
+"\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(960, 830, 111, 41))
+        self.pushButton.setGeometry(QtCore.QRect(1190, 800, 111, 41))
         self.pushButton.setObjectName("pushButton")
         self.upload = QtWidgets.QPushButton(self.centralwidget)
         self.upload.setGeometry(QtCore.QRect(30, 60, 93, 28))
@@ -260,7 +269,7 @@ class Ui_MainWindow(object):
         self.graphicsView_logo.setGeometry(QtCore.QRect(550, 40, 411, 101))
         self.graphicsView_logo.setObjectName("graphicsView_logo")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(470, 180, 601, 641))
+        self.layoutWidget.setGeometry(QtCore.QRect(1180, 570, 111, 111))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -268,14 +277,11 @@ class Ui_MainWindow(object):
         self.graphicsView_plot = QtWidgets.QGraphicsView(self.layoutWidget)
         self.graphicsView_plot.setObjectName("graphicsView_plot")
         self.verticalLayout_2.addWidget(self.graphicsView_plot)
-        self.pushButton_model_export = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton_model_export.setObjectName("pushButton_model_export")
-        self.verticalLayout_2.addWidget(self.pushButton_model_export)
         self.graphicsView_bird = QtWidgets.QGraphicsView(self.centralwidget)
         self.graphicsView_bird.setGeometry(QtCore.QRect(1090, 10, 321, 511))
         self.graphicsView_bird.setObjectName("graphicsView_bird")
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(1090, 530, 321, 331))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(480, 170, 581, 661))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -292,7 +298,11 @@ class Ui_MainWindow(object):
         self.pushButton_next.setObjectName("pushButton_next")
         self.horizontalLayout.addWidget(self.pushButton_next)
         self.verticalLayout_3.addLayout(self.horizontalLayout)
+        self.pushButton_model_export = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.pushButton_model_export.setObjectName("pushButton_model_export")
+        self.verticalLayout_3.addWidget(self.pushButton_model_export)
         self.stackedWidget_layout.raise_()
+        self.pushButton_model_export.raise_()
         self.layoutWidget.raise_()
         self.stackedWidget.raise_()
         self.pushButton.raise_()
@@ -363,9 +373,9 @@ class Ui_MainWindow(object):
         self.pushButton_plot.setText(_translate("MainWindow", "開始繪圖"))
         self.label_4.setText(_translate("MainWindow", "尚未支援該功能"))
         self.label_5.setText(_translate("MainWindow", "尚未支援該功能"))
-        self.pushButton_model_export.setText(_translate("MainWindow", "匯出模型"))
         self.pushButton_last.setText(_translate("MainWindow", "上一張"))
         self.pushButton_next.setText(_translate("MainWindow", "下一張"))
+        self.pushButton_model_export.setText(_translate("MainWindow", "匯出模型"))
 
 
 if __name__ == "__main__":

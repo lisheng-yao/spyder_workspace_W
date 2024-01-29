@@ -228,15 +228,16 @@ class TestMVC_controller(QMainWindow):
             plt.show()
             
             list_of_figures.append(fig)    
-        
-            self.plot_to_graphics_view(fig)
+            
+            # 單張繪圖
+            # self.plot_to_graphics_view(fig)
         
            
         self.update_stacked_widget(list_of_figures) ######################
         
         
     
-    #
+    # 單張繪圖 ()
     def plot_to_graphics_view(self, figure):
         # 清除原本的圖
         layout = self.view.graphicsView_plot.layout() # 取得佈局 (layout)物件
