@@ -10,6 +10,8 @@ from PyQt5 import  QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from sklearn.cluster import KMeans
+from sklearn.datasets import make_blobs
+import joblib
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -34,9 +36,11 @@ class TestMVC_controller(QMainWindow):
         
         self.set_logo()
         self.view.pushButton_plot.clicked.connect(self.plot_click)
+        # self.view.pushButton_model_export.connect(self.model_export)
         self.plot_layout = QtWidgets.QVBoxLayout(self.view.graphicsView_plot)
         self.click_count = 0
         self.file_path = None
+        # self.X = None
         
     #    
     def button_click(self):
@@ -311,7 +315,8 @@ class TestMVC_controller(QMainWindow):
 
 
 
-
+    # def model_export(self):
+        
 
 
 
