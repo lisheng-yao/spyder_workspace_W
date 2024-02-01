@@ -13,16 +13,21 @@ logging.basicConfig()
 log = logging.getLogger()
 log.setLevel(logging.WARNING) # 可設置為debug、CRITICAL
 
+# IP = input('IP:')
+# prot = input('port:')
+# timeout = input('Timeout:')
+
 
 # 連接到 Modbus TCP 伺服器
-client = ModbusClient('192.168.3.123', port=502, timeout=10)  # 超時設置為15秒
+client = ModbusClient('192.168.3.32', port=502, timeout=10)  # 超時設置為15秒
 connection = client.connect()
 
 
 
 if connection:
     # 讀取保持寄存器
-    response = client.read_holding_registers(address=512, count=10, unit=1)
+    response = client.read_holding_registers(address=512, count=100, unit=1)
+    # 248 - 250 
     # response = client.read_holding_registers(0, )
     
     if not response.isError():
