@@ -42,7 +42,7 @@ class TestMVC_controller(QMainWindow):
         self.file_path = None
         # self.X = None
         
-    #    
+    # 計數按鈕
     def button_click(self):
         self.click_count += 1
         self.view.pushButton.setText(str(self.click_count))
@@ -96,7 +96,7 @@ class TestMVC_controller(QMainWindow):
         
     
         
-    # 圖片處理
+    # 圖片處理(舊版)
     # def set_logo(self):
     #     scene = QtWidgets.QGraphicsScene()
         
@@ -126,7 +126,7 @@ class TestMVC_controller(QMainWindow):
         
         
         
-    # 圖片處理2
+    # 圖片處理(新版)
     def set_logo(self):
         self.load_and_set_image("logo/logo.png", self.view.graphicsView_logo, (400, 80), 'logo已設定')
         self.load_and_set_image("logo/bird.jpg", self.view.graphicsView_bird, (360, 480), '準備起飛')
