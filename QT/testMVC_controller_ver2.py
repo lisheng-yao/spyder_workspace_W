@@ -241,7 +241,7 @@ class TestMVC_controller(QMainWindow):
         
         
     
-    # 單張繪圖 ()
+    # 單張繪圖
     def plot_to_graphics_view(self, figure):
         # 清除原本的圖
         layout = self.view.graphicsView_plot.layout() # 取得佈局 (layout)物件
