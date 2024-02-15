@@ -50,27 +50,11 @@ def run_slave():
         
         }
     context1 = ModbusServerContext(slaves=store1, single=False)
-    StartTcpServer(context1, address=('192.168.3.200', 502))
+    # StartTcpServer(context1, address=('192.168.3.200', 502))
+    StartTcpServer(context1, address=('127.0.0.1', 503))
     
     
-    # identity = ModbusDeviceIdentification()
-    # identity.VendorName = 'VendorName'
-    # identity.ProductCode = 'PM'
-    # identity.VendorUrl = 'http://example.com'
-    # identity.ProductName = 'Product Name'
-    # identity.ModelName = 'Model Name'
-    # identity.MajorMinorRevision = '1.0'
-        
-    # serial_params = {
-    #     'port': 'COM5',  # 設定為您的串列埠
-    #     'baudrate': 9600,
-    #     'parity': serial.PARITY_NONE,
-    #     'stopbits': serial.STOPBITS_ONE,
-    #     'bytesize': serial.EIGHTBITS,
-    #     'timeout': 1
-    #     }
 
-    # StartSerialServer(context1, **serial_params)
     
     
 
