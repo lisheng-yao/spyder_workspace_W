@@ -51,7 +51,7 @@ def run_slave():
         }
     context1 = ModbusServerContext(slaves=store1, single=False)
     # StartTcpServer(context1, address=('192.168.3.200', 502))
-    StartTcpServer(context1, address=('127.0.0.1', 503))
+    StartTcpServer(context1, address=('127.0.0.1', 502))
     
     
 
