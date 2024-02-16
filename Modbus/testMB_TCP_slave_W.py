@@ -15,6 +15,8 @@ import threading
 import serial
 
 def run_slave():
+    
+
     global context1
     store1 = {
         1:ModbusSlaveContext(
@@ -51,7 +53,7 @@ def run_slave():
         }
     context1 = ModbusServerContext(slaves=store1, single=False)
     # StartTcpServer(context1, address=('192.168.3.200', 502))
-    StartTcpServer(context1, address=('127.0.0.1', 502))
+    StartTcpServer(context1, address=(ip, port))
     
     
 
@@ -59,7 +61,10 @@ def run_slave():
     
 
 if __name__ == "__main__":
-
+    
+    ip = input("Enter IP address: ")
+    port = int(input("Enter port: "))  # 將埠號轉換為整數
+    
     thread = threading.Thread(target=run_slave)
     thread.start()
     

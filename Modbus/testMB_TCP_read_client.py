@@ -14,7 +14,7 @@ log.setLevel(logging.WARNING) # 可設置為debug、CRITICAL
 
 
 # 連接到 Modbus TCP 伺服器
-client = ModbusClient('192.168.3.222', port=502, timeout=10)  # 超時設置為10秒
+client = ModbusClient('192.168.1.11', port=502, timeout=10)  # 超時設置為10秒
 connection = client.connect()
 
 
