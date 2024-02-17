@@ -91,11 +91,13 @@ files = glob(r"C:\Users\w\Desktop\data\bank*.csv")
 print(files)
 
 
-df = pd.concat([pd.read_csv(f) for in files])
-df.reset_index(drop = True)
+df = pd.concat([pd.read_csv(f) for f in files])
+df.reset_index(drop = True) # 在此處將 inplace 參數設置為 True 以使 reset_index 永久修改 DataFrame
+
+print(df)
 
 # 輸出合併CSV檔
-# output_file_path = r"C:\Users\w\Desktop\merged_data.csv"  # 指定輸出文件的路徑
+# output_file_path = r"C:\Users\w\Desktop\merged_data2.csv"  # 指定輸出文件的路徑
 # df.to_csv(output_file_path, index=False)  # index=False 表示不將行索引寫入到 CSV 文件中
 
 
