@@ -7,7 +7,7 @@ Created on Thu Nov 30 10:45:30 2023
 """
 
 # from pymodbus.client.sync import ModbusSerialClient as ModbusClient # pymodbus==2.5.3
-from pymodbus.client.sync import ModbusSerialClient
+from pymodbus.client import AsyncModbusSerialClient, ModbusSerialClient # pymodbus==3.6.4
 
 import time
 # from pymodbus.client.serial import ModbusSerialClient as ModbusClient
