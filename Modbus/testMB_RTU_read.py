@@ -6,16 +6,14 @@ Created on Thu Nov 30 10:45:30 2023
 @author: yaolisheng
 """
 
-# from pymodbus.client.sync import ModbusSerialClient as ModbusClient # pymodbus==2.5.3
-from pymodbus.client import AsyncModbusSerialClient, ModbusSerialClient # pymodbus==3.6.4
-
+from pymodbus.client.sync import ModbusSerialClient as ModbusClient # pymodbus==2.5.3
 import time
 # from pymodbus.client.serial import ModbusSerialClient as ModbusClient
 
 
 
 # 建立 Modbus RTU 連接
-client = ModbusSerialClient(method='rtu', 
+client = ModbusClient(method='rtu', 
                       port='COM5',          # 串行端口，根據您的設備調整
                       baudrate=19200,        # 波特率
                       # parity='N',           # 奇偶校驗，可能是 'N', 'E' 或 'O'
