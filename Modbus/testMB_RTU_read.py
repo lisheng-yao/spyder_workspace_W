@@ -30,7 +30,7 @@ try:
         # # while True:
         for i in range(3):
             # 讀取數據 (從地址0開始讀取 count個寄存器)
-            response = client.read_holding_registers(address=512, count=120, unit=1)
+            response = client.read_holding_registers(address=512, count=512, unit=1)
             # response1 = client.read_holding_registers(address=0, count=120, unit=1)
             # response2 = client.read_holding_registers(address=632, count=120, unit=1)
         
