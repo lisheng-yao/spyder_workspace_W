@@ -15,7 +15,7 @@ import serial
 
 # 初始化数据库
 store = ModbusSlaveContext(
-    hr=ModbusSequentialDataBlock(0, [0]*10)
+    hr=ModbusSequentialDataBlock(0, [0]*10000)
 )
 
 context = ModbusServerContext(slaves=store, single=True)
@@ -30,21 +30,23 @@ def update_registers(context):
             print(f'Register {address} value: {value}')
         time.sleep(1)  # 每秒更新一次
 
+
+if __name__ == "__main__":
 # 创建线程更新函数
-thread = threading.Thread(target=update_registers, args=(context,))
-thread.start()
-
-# 配置串行端口参数
-serial_params = {
-    'port': 'COM4',  # 修改为您的串行端口
-    'baudrate': 9600,
-    'bytesize': 8,
-    'parity': 'N',
-    'stopbits': 1,
-    'xonxoff': 0,
-    'rtscts': 0,
-    'timeout': 1  # 可根据需要设置
-}
-
-# 运行同步线程，监听指定的串行端口
-StartSerialServer(context, framer=ModbusRtuFramer, **serial_params)
+    thread = threading.Thread(target=update_registers, args=(context,))
+    thread.start()
+    
+    # 配置串行端口参数
+    serial_params = {
+        'port': 'COM4',  # 修改为您的串行端口
+        'baudrate': 9600,
+        'bytesize': 8,
+        'parity': 'N',
+        'stopbits': 1,
+        'xonxoff': 0,
+        'rtscts': 0,
+        'timeout': 1  # 可根据需要设置
+    }
+    
+    # 运行同步线程，监听指定的串行端口
+    StartSerialServer(context, framer=ModbusRtuFramer, **serial_params)
