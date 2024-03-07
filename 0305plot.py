@@ -25,9 +25,9 @@ plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M:%S'))
 plt.gcf().autofmt_xdate()  # 自動格式化日期顯示以便更佳
 
 # 添加標題和標籤
-plt.title('Rack Temperatures Over Time')
-plt.xlabel('Timestamp')
-plt.ylabel('Rack_Max_Cell_Temperature (°C)')
+# plt.title('Rack Temperatures Over Time')
+# plt.xlabel('Timestamp')
+# plt.ylabel('Rack_Max_Cell_Temperature (°C)')
 
 # 添加圖例
 plt.legend()
