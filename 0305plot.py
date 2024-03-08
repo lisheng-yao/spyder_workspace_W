@@ -110,3 +110,37 @@ plt.legend()
 
 plt.savefig(r'C:\Users\w\Desktop\彰濱240304\溫升降溫\報告用\container2_temperature_plot.png')
 plt.show()
+
+#%% 自寫版
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+
+excel_path = r'C:\Users\w\Desktop\彰濱240304\溫升降溫\報告用\0305max.xlsx'
+df = pd.read_excel(excel_path , engine='openpyxl')
+
+
+df['Timestamp']
+df_pivot = df.pivot(index='Timestamp' , columns='RACK' , values='Rack_Max_Cell_Temperature')
+
+plt.figure(figsize=(15,7))
+
+
+for column in df_pivot.columns:
+    plt.plot(df_pivot.index , df_pivot[column] , label=column)
+
+
+plt.gcf().autofmt_xdate()
+
+
+plt.title('Rack Temperatures Over Time')
+plt.xlabel('Timestamp')
+plt.ylabel('Rack_Temperature (°C)')
+plt.legend()
+
+plt.show()
+
+
+
