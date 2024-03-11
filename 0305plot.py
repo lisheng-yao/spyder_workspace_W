@@ -142,5 +142,45 @@ plt.legend()
 
 plt.show()
 
+#%%
+import pandas as pd
+
+
+csv_path = r'C:\Users\w\Desktop\彰濱240304\溫升降溫\報告用\0305maxT(1).csv'
+df = pd.read_csv(csv_path)
+
+df_pivot = df.pivot(index='Timestamp', columns='RACK', values='Rack_Max_Cell_Temperature')
+
+# df_pivot_sorted = df_pivot.sort_index(axis=1)
+columns_order = [f'rack{i}_Temperature' for i in range(1, 19)]
+df_pivot_ordered = df_pivot[columns_order]
+
+# 对DataFrame中的所有值先减200再除以10
+df_pivot_ordered_transformed = (df_pivot_ordered - 200) / 10
+
+
+df_pivot_ordered_transformed.to_csv(r'C:\Users\w\Desktop\彰濱240304\溫升降溫\報告用\Temperture_log_container1.csv')
+
+
+#%%
+
+import pandas as pd
+
+
+csv_path = r'C:\Users\w\Desktop\彰濱240304\溫升降溫\報告用\0305maxT(6).csv'
+df = pd.read_csv(csv_path)
+
+df_pivot = df.pivot(index='Timestamp', columns='RACK', values='Rack_Max_Cell_Temperature')
+
+# print(df_pivot)
+
+columns_order = [f'rack {i}' for i in range(1, 19)]
+df_pivot_ordered = df_pivot[columns_order]
+df_pivot_ordered.columns = [f'rack{i}_Temperature' for i in range(1, 19)]
+# print(df_pivot_ordered)
+
+df_pivot_ordered_transformed = (df_pivot_ordered - 200) / 10
+
+df_pivot_ordered_transformed.to_csv(r'C:\Users\w\Desktop\彰濱240304\溫升降溫\報告用\Temperture_log_container6.csv')
 
 
