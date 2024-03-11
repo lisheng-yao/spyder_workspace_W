@@ -81,7 +81,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 
-excel_path = r'C:\Users\w\Desktop\彰濱240304\溫升降溫\報告用\0305(6)max.xlsx'
+excel_path = r'C:\Users\w\Desktop\彰濱240304\溫升降溫\報告用\0305maxT(1).csv'
 df = pd.read_excel(excel_path, engine='openpyxl')
 
 
