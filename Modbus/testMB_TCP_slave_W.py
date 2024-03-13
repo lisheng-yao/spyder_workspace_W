@@ -65,7 +65,7 @@ if __name__ == "__main__":
     # ip = input("Enter IP address: ")
     # port = int(input("Enter port: "))  # 將埠號轉換為整數
     
-    ip = "127.1.0.1"
+    ip = "192.168.1.100"
     port = 502
     
     thread = threading.Thread(target=run_slave)
