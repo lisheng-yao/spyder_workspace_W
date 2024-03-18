@@ -17,3 +17,46 @@ options = {
 
 with yt_dlp.YoutubeDL(options) as ydl:
     ydl.download([url360])
+    
+
+#%% 影片分段
+
+from moviepy.editor import VideoFileClip
+import math
+
+def split_video(video_path, segment_length):
+    """
+    分割視頻文件。
+    
+    參數:
+    - video_path: 視頻文件的路徑。
+    - segment_length: 分割長度，單位為秒。
+    """
+    # 加載視頻
+    clip = VideoFileClip(video_path)
+    
+    # 計算視頻總時長
+    total_duration = clip.duration  # 獲取視頻時長，單位為秒
+    
+    # 計算需要分割成多少個文件
+    segments = math.ceil(total_duration / segment_length)
+    
+    for i in range(segments):
+        # 計算每段視頻的開始和結束時間
+        start_time = i * segment_length
+        end_time = min((i + 1) * segment_length, total_duration)
+        
+        # 分割視頻
+        new_clip = clip.subclip(start_time, end_time)
+        
+        # 保存分割後的視頻
+        new_clip.write_videofile(f"{video_path}_segment_{i+1}.mp4", codec="libx264", audio_codec="aac")
+        
+        print(f"Segment {i+1} saved.")
+        
+    # 釋放資源
+    clip.close()
+
+# 使用範例
+video_path = r"C:\Users\w\Downloads\video360.mp4"  # 替換成你的視頻文件路徑
+split_video(video_path, segment_length=180)  # 每3分鐘分割一次
