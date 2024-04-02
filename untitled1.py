@@ -50,11 +50,20 @@ print(f'Your lucky number: {random.sample(num_list, 6)}')
 #%%
 
 
-a = [i %  49 +1 for i in range(6)]
+a = []
+
+for _ in range(6):
+    for _ in range(6):
+        num = (_ * 6) % 49 + 1
+        a.append(num)
+
 print(a)
 
+#%%
 
+a = random.sample(range(1,10), 3)
 
+print(a)
 
 
 
